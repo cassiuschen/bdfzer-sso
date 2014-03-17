@@ -1,0 +1,6 @@
+cp ./config/databse.yml.sample ./config/database.yml
+sudo bundle install -V
+spring binstub --all
+rake db:create
+spring rake db:migrate
+spring rake db:seed
