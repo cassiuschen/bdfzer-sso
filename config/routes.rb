@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'cas_signup/index'
+
   get 'home/index'
 
   get 'home/about'
@@ -10,6 +12,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   root 'home#index'
+
+  get 'cas/sign_up' => 'cas_signup#index', as: :cas_signup
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

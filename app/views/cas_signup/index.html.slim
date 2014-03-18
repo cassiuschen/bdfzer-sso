@@ -1,0 +1,11 @@
+h1 CasSignup#index
+p Find me in app/views/cas_signup/index.html.slim
+p = session[:cas_user]
+
+= form_for @user, :url => registration_path(@user) do |f|
+  = f.email_field :email, :autofocus => true
+  = f.text_field :name
+  = f.password_field :password
+  = f.password_field :password_confirmation
+  = f.text_field :pku_id , :value => @current_id
+  = f.submit 'Sign in'

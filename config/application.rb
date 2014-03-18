@@ -19,5 +19,11 @@ module BDFZerSso
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+    Rack::MiniProfiler.config.position = 'right'
   end
 end
+
+CASClient::Frameworks::Rails::Filter.configure(
+  :cas_base_url => "http://bdfz-cas.pkuschool.edu.cn:80/cas/",
+  :validate_url => "http://bdfz-cas.pkuschool.edu.cn:80/cas/serviceValidate"
+)

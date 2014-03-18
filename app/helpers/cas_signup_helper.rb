@@ -1,0 +1,2 @@
+module CasSignupHelper
+end
