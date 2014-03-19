@@ -20,6 +20,21 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get 'cas/sign_up' => 'cas_signup#index', as: :cas_signup
+
+
+  # omniauth client stuff
+  get '/auth/:provider/callback', :to => 'authentications#create'
+  get '/auth/failure', :to => 'authentications#failure'
+
+  # Provider stuff
+  get '/auth/bdfzer_id/authorize' => 'auth#authorize'
+  get '/auth/bdfzer_id/access_token' => 'auth#access_token'
+  get '/auth/bdfzer_id/user' => 'auth#user'
+  get '/oauth/token' => 'auth#access_token'
+
+  # Account linking
+  get 'authentications/:user_id/link' => 'authentications#link', :as => :link_accounts
+  get 'authentications/:user_id/add' => 'authentications#add', :as => :add_account
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
