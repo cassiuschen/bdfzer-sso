@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'authentications/index'
+
+  get 'authentications/link'
+
+  resources :clients
+
   get 'cas_signup/index'
 
   get 'home/index'

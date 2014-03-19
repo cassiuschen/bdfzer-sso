@@ -22,6 +22,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       ## Custom Info
       t.string :name
       t.string :pku_id, :unique => true
+      t.string :authentication_token
 
       ## Confirmable
       t.string   :confirmation_token
