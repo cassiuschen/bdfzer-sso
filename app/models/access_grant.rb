@@ -1,4 +1,4 @@
-class AccessGrants < ActiveRecord::Base
+class AccessGrant < ActiveRecord::Base
   belongs_to :user
   belongs_to :client
   before_create :generate_tokens

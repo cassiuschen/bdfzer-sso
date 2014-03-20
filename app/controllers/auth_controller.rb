@@ -8,7 +8,7 @@ class AuthController < ApplicationController
 
   def authorize
     AccessGrant.prune!
-    access_grant = current_user.access_grants.create({:client => application, :state => params[:state]}, :without_protection => true)
+    access_grant = current_user.access_grants.create([{:client => application, :state => params[:state]}, :without_protection => true])
     redirect_to access_grant.redirect_uri_for(params[:redirect_uri])
   end
 
@@ -36,13 +36,14 @@ class AuthController < ApplicationController
 
   def user
     hash = {
-      :provider => 'bdfzer_id',
+      :provider => 'bdfzer',
       :id => current_user.id.to_s,
       :info => {
          :email      => current_user.email,
       },
       :extra => {
          :name => current_user.name,
+         :pku_id => current_user.pku_id
       }
     }
 
