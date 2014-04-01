@@ -20,6 +20,11 @@ module BDFZerSso
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     Rack::MiniProfiler.config.position = 'right'
+
+    config.paths.add "app/api", glob: "**/*.rb"
+    config.paths.add "app/services", glob: "**/*.rb"
+    config.autoload_paths += Dir["#{Rails.root}/app/api/*"]
+    config.autoload_paths += Dir["#{Rails.root}/app/services/*"]
   end
 end
 

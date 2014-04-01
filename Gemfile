@@ -41,8 +41,14 @@ gem 'puma'
 
 gem 'rubycas-client', path: '../rubycas-client', branch: 'feature/UpdateToRails4.1'
 
+
+# Redis Server
+gem 'redis-rails'
+gem 'redis-rack-cache'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'doorkeeper'
+gem 'grape'
+gem 'rack-oauth2'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
