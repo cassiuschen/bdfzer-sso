@@ -4,5 +4,6 @@ module V1
 
     mount SampleAPI
     mount SecretAPI
+    mount UserAPI
   end
 end

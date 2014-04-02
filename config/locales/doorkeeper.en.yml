@@ -72,3 +72,7 @@ en:
       authorized_applications:
         destroy:
           notice: 'Application revoked.'
+    scopes:
+      public: 'Access your public data'
+      write: 'Update your information'
+      admin: 'Change your preferences'
