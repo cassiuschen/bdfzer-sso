@@ -39,7 +39,7 @@ gem 'omniauth-oauth2'
 # gem 'unicorn'
 gem 'puma'
 
-gem 'rubycas-client', path: '../rubycas-client', branch: 'feature/UpdateToRails4.1'
+gem 'rubycas-client', github: 'cassiuschen/rubycas-client', branch: 'feature/UpdateToRails4.1'
 
 
 # Redis Server

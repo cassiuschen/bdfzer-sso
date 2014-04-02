@@ -6,7 +6,7 @@ class CasSignupController < ApplicationController
 
     respond_to do |f|
     	if @user.save
-    		f.html { redirect_to @user, notice: '用户创建成功！' }
+    		f.html { redirect_to root_path, notice: '用户创建成功！' }
     		#f.json { render action: 'show', status: :created, location: @user }
     	else
     		f.html { render action: 'new', warning: '用户创建失败' }

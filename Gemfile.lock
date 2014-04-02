@@ -1,5 +1,7 @@
-PATH
-  remote: ../rubycas-client
+GIT
+  remote: git://github.com/cassiuschen/rubycas-client.git
+  revision: aa2c1b38f418f9253f9786db7ac143970deb6b84
+  branch: feature/UpdateToRails4.1
   specs:
     rubycas-client (2.3.10.rc1)
       activesupport
