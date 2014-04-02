@@ -17,8 +17,11 @@ Rails.application.routes.draw do
 
   get 'cas/sign_up' => 'cas_signup#index', as: :cas_signup
 
-  mount ApplicationAPI => '/api'
-  
+  namespace :api do
+    namespace :v1 do
+      resources :omniauth
+    end
+  end  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

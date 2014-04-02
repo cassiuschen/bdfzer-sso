@@ -1,0 +1,2 @@
+class ApiController::ApplicationController < ApplicationController
+end
