@@ -48,7 +48,7 @@ gem 'redis-rack-cache'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'doorkeeper'
-gem 'grape'
-gem 'rack-oauth2'
+#gem 'grape'
+#gem 'rack-oauth2'
 # Use debugger
 # gem 'debugger', group: [:development, :test]

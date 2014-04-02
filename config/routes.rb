@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   use_doorkeeper
 
-  get 'cas_signup/index'
+ #get 'cas_signup/index'
 
   get 'home/index'
 
@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :omniauth
     end
-  end  
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

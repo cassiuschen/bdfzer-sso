@@ -1,8 +1,8 @@
-class ApiController::V1::OmniauthController < ApiController::ApplicationController
+class Api::V1::OmniauthController < Api::V1::BaseController
 
   doorkeeper_for :all
 
-  def show
+  def index
     respond_with current_token_owner
   end
 
