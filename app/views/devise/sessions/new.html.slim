@@ -1,0 +1,23 @@
+h4 
+  span 登陆北附人ID
+//= render "devise/shared/links"
+hr
+
+= form_for resource, :as => resource_name, :url => session_path(resource_name), html: {:class => 'ui form no-label'} do |f| 
+  .field.string.optional.user_login
+    = f.email_field :email, :autofocus => true, :class => 'string optional', :placeholder => "邮箱", :tabindex => "1"
+
+  .field.string.optional.user_password
+    = f.password_field :password, :class => 'string optional', :placeholder => "密码", :tabindex => "2", :autofocus => true
+
+  -if devise_mapping.rememberable?
+    .ui.toggle.checkbox
+      = f.check_box :remember_me, :tabindex => "3", :autofocus => true
+      = f.label :remember_me
+        | 自动登录？
+
+  br
+  = f.submit "登陆", :class => "ui button submit", :tabindex => "4", :autofocus => true, :style => " margin-top: 10px; "
+
+
+//= render "devise/shared/links"

@@ -26,29 +26,20 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
-
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
+# Login Server
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-oauth2'
-# Use unicorn as the app server
-# gem 'unicorn'
+# Use puma as the app server
 gem 'puma'
-
+# CAS Client
 gem 'rubycas-client', github: 'cassiuschen/rubycas-client', branch: 'feature/UpdateToRails4.1'
-
-
 # Redis Server
 gem 'redis-rails'
 gem 'redis-rack-cache'
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+# Use Doorkeeper as Oauth2.0 Provider
 gem 'doorkeeper'
-#gem 'grape'
-#gem 'rack-oauth2'
-# Use debugger
-# gem 'debugger', group: [:development, :test]
+# StyleSheets
+gem 'semantic-ui-sass'
