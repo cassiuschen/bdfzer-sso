@@ -2,8 +2,8 @@ h4
   span 使用北大附中内网注册北附人ID
 p 
   | #{session[:cas_user]}你好，成功注册后，你将可以利用北大附中内网的用户认证直接登陆北附人ID。
-hr
-= form_for @user, :url => registration_path(@user), html: {:class => 'ui form no-label'} do |f|
+= form_for resource, :as => resource_name, :url => registration_path(resource_name), html: {:class => 'ui form no-label'} do |f| 
+  = devise_error_messages!
   .field.string.optional
     = f.email_field :email, :autofocus => true, :class => 'string optional', :placeholder => "邮箱", :tabindex => "1"
   .field.string.optional
@@ -12,6 +12,9 @@ hr
     = f.password_field :password, :class => 'string optional', :placeholder => "密码", :tabindex => "3", :autofocus => true
     = f.password_field :password_confirmation, :class => 'string optional', :placeholder => "重复密码", :tabindex => "4", :autofocus => true
   .field.string.optional.disabled
-    = f.text_field :pku_id , :value => @current_id, :disabled => true
+    = f.text_field :pku_id , :value => session[:cas_user], :disabled => true
 
   = f.submit '注册', :class => "ui button submit", :tabindex => "5", :autofocus => true
+
+//= render "devise/shared/links" %>
+ 

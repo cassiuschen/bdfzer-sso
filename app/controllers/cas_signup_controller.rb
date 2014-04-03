@@ -1,9 +1,9 @@
 class CasSignupController < ApplicationController
   before_action CASClient::Frameworks::Rails::Filter
+  after_action :save_info, only: :create
   def create
     @current_id = session[:cas_user]
     @user = User.new(cas_params)
-
     respond_to do |f|
     	if @user.save
     		f.html { redirect_to root_path, notice: '用户创建成功！' }
@@ -23,6 +23,12 @@ class CasSignupController < ApplicationController
 
   private
   def cas_params
-  	params.permit(:email, :pku_id, :password, :password_confirmation, :name)
+  	params.permit(:email, :name, :password, :password_confirmation, :pku_id)
+  end
+
+  def save_info
+    @user.pku_id = session[:cas_user]
+    @user.name = params[:name]
+    @user.save
   end
 end
