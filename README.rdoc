@@ -1,3 +1,5 @@
+http://211.68.73.245/bdfzer_asset/discoursesandbox.png
+
 == 北附人 Oauth2.0 认证系统
 
 此为北附人平台的 Oauth2.0 认证系统源码。
