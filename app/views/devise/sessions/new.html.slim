@@ -5,7 +5,7 @@ hr
 
 = form_for resource, :as => resource_name, :url => session_path(resource_name), html: {:class => 'ui form no-label'} do |f| 
   .field.string.optional.user_login
-    = f.email_field :email, :autofocus => true, :class => 'string optional', :placeholder => "邮箱", :tabindex => "1"
+    = f.text_field :login, :autofocus => true, :class => 'string optional', :placeholder => "邮箱 或 北大附中学号", :tabindex => "1"
 
   .field.string.optional.user_password
     = f.password_field :password, :class => 'string optional', :placeholder => "密码", :tabindex => "2", :autofocus => true
