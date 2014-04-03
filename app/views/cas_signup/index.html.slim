@@ -11,7 +11,10 @@ hr
   .field.string.optional.user_password
     = f.password_field :password, :class => 'string optional', :placeholder => "密码", :tabindex => "3", :autofocus => true
     = f.password_field :password_confirmation, :class => 'string optional', :placeholder => "重复密码", :tabindex => "4", :autofocus => true
-  .field.string.optional.disabled
-    = f.text_field :pku_id , :value => @current_id, :disabled => true
+  = f.hidden_field :pku_id , :value => @current_id
 
-  = f.submit '注册', :class => "ui button submit", :tabindex => "5", :autofocus => true
+  = f.submit "注册", :class => "ui button submit", :tabindex => "5", :autofocus => true
+
+br
+hr
+= render "devise/shared/links"
