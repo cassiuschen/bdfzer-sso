@@ -6,6 +6,8 @@ http://211.68.73.245/bdfzer_asset/discoursesandbox.png
 
 项目地址： http://www.bdfzer.com
 
+遵循GPL v3协议
+
 ==== 软件环境
 
 * Ruby 2.1.1
