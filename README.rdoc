@@ -1,28 +1,45 @@
-== README
+== 北附人 Oauth2.0 认证系统
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+此为北附人平台的 Oauth2.0 认证系统源码。
 
-Things you may want to cover:
+项目地址： http://www.bdfzer.com
 
-* Ruby version
+==== 软件环境
 
-* System dependencies
+* Ruby 2.1.1
 
-* Configuration
+* Rails 4.1.0.rc1
 
-* Database creation
+* Redis
 
-* Database initialization
+* Postgresql 9.1+
 
-* How to run the test suite
+* Semantic-UI
 
-* Services (job queues, cache servers, search engines, etc.)
+* Devise
+
+* RubyCas-Client (github: 'cassiuschen/rubycas-client', branch: 'feature/UpdateToRails4.1')
+
+* DoorKeeper
+
+==== 功能
+
+* 使用北大附中CAS注册用户
+
+* 使用北大附中学号登陆系统
+
+* 开放的 Oauth2.0 认证
+
+* Oauth2.0 认证下的用户信息API
+
+==== TO-DO List
+
+* 权限设置
+
+* 完善用户信息
+
+* 增加主站功能
 
 * Deployment instructions
 
-* ...
 
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
