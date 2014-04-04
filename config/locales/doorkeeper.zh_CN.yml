@@ -5,10 +5,10 @@ zh_CN:
         application:
           attributes:
             redirect_uri:
-              fragment_present: 'cannot contain a fragment.'
-              has_query_parameter: 'cannot contain a query parameter.'
-              invalid_uri: 'must be a valid URI.'
-              relative_uri: 'must be an absolute URI.'
+              fragment_present: '不能包含非完整信息。'
+              has_query_parameter: '不能包含一个序列参数。'
+              invalid_uri: '必须是可用的URI。'
+              relative_uri: '必须是确定的URI。'
   mongoid:
     errors:
       models:
@@ -33,46 +33,46 @@ zh_CN:
     errors:
       messages:
         # Common error messages
-        invalid_request: 'The request is missing a required parameter, includes an unsupported parameter value, or is otherwise malformed.'
-        invalid_redirect_uri: 'The redirect uri included is not valid.'
-        unauthorized_client: 'The client is not authorized to perform this request using this method.'
-        access_denied: 'The resource owner or authorization server denied the request.'
-        invalid_scope: 'The requested scope is invalid, unknown, or malformed.'
-        server_error: 'The authorization server encountered an unexpected condition which prevented it from fulfilling the request.'
-        temporarily_unavailable: 'The authorization server is currently unable to handle the request due to a temporary overloading or maintenance of the server.'
+        invalid_request: '这个请求包含不正确的参数或请求格式错误。'
+        invalid_redirect_uri: '所包含的重定向URI非法。'
+        unauthorized_client: '这个链接客户端还没有通过身份认证，不能调用该方法。'
+        access_denied: '认证被拒绝。'
+        invalid_scope: '这个请求的Scope参数不合理。'
+        server_error: '北附人认证系统发生了一些不科学的事情，本次身份认证失败。'
+        temporarily_unavailable: '北附人认证系统没有多余的地方储存你的临时认证信息，故本次认证失败。'
 
         #configuration error messages
         credential_flow_not_configured: 'Resource Owner Password Credentials flow failed due to Doorkeeper.configure.resource_owner_from_credentials being unconfigured.'
         resource_owner_authenticator_not_configured: 'Resource Owner find failed due to Doorkeeper.configure.resource_owner_authenticator being unconfiged.'
 
         # Access grant errors
-        unsupported_response_type: 'The authorization server does not support this response type.'
+        unsupported_response_type: '北附人认证系统不是你想调戏就能调戏的，你自己瞅瞅你回调了一个什么玩意？'
 
         # Access token errors
-        invalid_client: 'Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.'
-        invalid_grant: 'The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client.'
-        unsupported_grant_type: 'The authorization grant type is not supported by the authorization server.'
+        invalid_client: '你所使用的程序不是经过北附人认证系统认证的程序，本次认证拒绝。'
+        invalid_grant: '你所持有的认证通过码有问题。可能已经超时、或不是目标应用的合法通过码。'
+        unsupported_grant_type: '通过码格式存在问题。'
 
         # Password Access token errors
-        invalid_resource_owner: 'The provided resource owner credentials are not valid, or resource owner cannot be found'
+        invalid_resource_owner: '应用API密钥错误，或不是已认证的应用。'
 
         invalid_token:
-          revoked: "The access token was revoked"
-          expired: "The access token expired"
-          unknown: "The access token is invalid"
+          revoked: "链接证书已被吊销。"
+          expired: "链接证书已过期。"
+          unknown: "链接证书不正确。"
 
     flash:
       applications:
         create:
-          notice: 'Application created.'
+          notice: '应用创建成功！'
         destroy:
-          notice: 'Application deleted.'
+          notice: '应用已被删除。'
         update:
-          notice: 'Application updated.'
+          notice: '应用信息已更新。'
       authorized_applications:
         destroy:
-          notice: 'Application revoked.'
+          notice: '应用认证信息已被吊销。'
     scopes:
-      public: 'Access your public data'
-      write: 'Update your information'
-      admin: 'Change your preferences'
+      public: '调取你的个人信息。'
+      write: '有权限更改你的个人信息。'
+      admin: '更改你的设置。'
