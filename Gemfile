@@ -43,3 +43,8 @@ gem 'redis-rack-cache'
 gem 'doorkeeper'
 # StyleSheets
 gem 'semantic-ui-sass'
+# Right Controll
+gem 'cancancan'
+# Uploader
+gem 'carrierwave'
+gem 'carrierwave-qiniu'

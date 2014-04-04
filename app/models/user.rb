@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
     :case_sensitive => false
   }
 
+  mount_uploader :avatar, AvatarUploader
+  
   attr_accessor :login
 
   def self.find_first_by_auth_conditions(warden_conditions)
