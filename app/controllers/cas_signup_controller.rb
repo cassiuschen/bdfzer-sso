@@ -1,6 +1,6 @@
 class CasSignupController < ApplicationController
   before_action CASClient::Frameworks::Rails::Filter
-  after_action :save_info, only: :create
+  #after_action :save_info, only: :create
   def create
     @current_id = session[:cas_user]
     @user = User.new(cas_params)
@@ -24,11 +24,5 @@ class CasSignupController < ApplicationController
   private
   def cas_params
   	params.permit(:email, :name, :password, :password_confirmation, :pku_id)
-  end
-
-  def save_info
-    @user.pku_id = session[:cas_user]
-    @user.name = params[:name]
-    @user.save
   end
 end
