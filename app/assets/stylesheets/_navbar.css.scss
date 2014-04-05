@@ -1,0 +1,70 @@
+@import "mixin";
+@import "var";
+
+.navbar.fixed {
+    position: fixed;
+}
+.fixed.top {
+    margin: 0 !important;
+    top: 0px;
+    left: 0px;
+}
+.fixed.left {
+    left: 0px;
+}
+body {
+    margin-left: $nav-width + 1rem !important;
+}
+
+.header-bar {
+	background-color: lighten(black,30%);
+	padding-bottom: 2rem;
+	.bdfzer-logo {
+		height: 2rem;
+	}
+	.user-header {
+		.avatar {
+			padding-top: 15px;
+			padding-bottom: 15px;
+			img {
+				border: 0.2rem solid rgba(255,255,255,0.2);
+				left: $nav-width / 2 - $header-avatar-width / 2;
+				width: $header-avatar-width;
+			}
+		}
+		.name {
+			display: block;
+			height: auto;
+			color: white;
+			font-size: 1rem;
+			font-weight: normal;
+			text-align: center;
+			h3 {
+				margin-top: 0 !important;
+				margin-bottom: 0.5rem !important;
+			}
+		}
+		.sub-title {
+			font-size: 0.5rem;
+			color: white;
+			text-align: center;
+		}
+	}
+}
+
+.bottom.bar {
+	bottom: 0;
+	position: fixed;
+	.item {
+		width: 6rem;
+		display: inline-block !important;
+		height: 6rem !important;
+		padding-left: 0 !important;
+		i {
+			float: none !important;
+			margin: 0 auto;
+			font-size: 1rem !important;
+			margin-left: ($nav-width / 3 - 1rem) / 2 !important;
+		}
+	}
+}

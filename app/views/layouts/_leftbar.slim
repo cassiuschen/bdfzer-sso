@@ -1,0 +1,28 @@
+header.ui.large.inverted.menu.vertical.fixed.left
+  .header-bar
+    .bdfzer-logo
+    .user-header
+      .avatar
+        = image_tag 'demo/avatar.jpg', :class => "circular ui image"
+      .name
+        h3.center.aligned
+          = current_user.name
+      .sub-title
+        = current_user.pku_id
+        |  - 
+        = current_user.email
+
+  = link_to root_path, :class => "item #{'active' if controller_name == 'home'}"
+    i.home.icon
+    = t 'nav.home'
+  a.item
+    i.mail.icon
+    = t 'nav.message'
+  .bottom.bar.icon
+    a.item
+      i.mail.icon
+    a.item
+      i.mail.icon
+    a.item
+      i.mail.icon
+ 

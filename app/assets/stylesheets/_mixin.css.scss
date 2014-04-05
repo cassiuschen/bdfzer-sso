@@ -1,0 +1,27 @@
+@mixin acd-btn-color($bg-c,$bd-c) {
+	background-color: $bg-c;
+	border: 1px solid $bd-c;
+}
+
+@mixin acd-btn-shadow($l,$rgba) {
+
+}
+@mixin acd-btn-size($height,$lh,$margin-left,$pd1,$pd2,$pd3,$pd4) {
+	height: $height;
+	line-height: $lh;
+	margin-left: $margin-left;
+	padding: $pd1 $pd2 $pd3 $pd4;
+	width: auto;
+}
+@mixin transform($motion,$time) {
+	-webkit-transition: $motion $time;
+	transition: $motion $time;
+	-o-transition: $motion $time;
+} 
+
+@mixin action($action, $value) {
+    -webkit-#{$action}: $value;
+    -moz-#{$action}: $value;
+    -ms-#{$action}: $value;
+    #{$action}: $value;
+}

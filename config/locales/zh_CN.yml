@@ -19,5 +19,13 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  hello: "Hello world"
+zh_CN:
+  nav:
+    home: "首页"
+    message: "message"
+    settings: "Settings"
+    notice: "notice"
+  type:
+    student: "学生"
+    admin: "管理员"
+    teacher: "教师"

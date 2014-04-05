@@ -1,5 +1,5 @@
 class AddAvator < ActiveRecord::Migration
   def change
-  	add_column :user, :avatar, :string
+  	add_column :users, :avatar, :string
   end
 end
