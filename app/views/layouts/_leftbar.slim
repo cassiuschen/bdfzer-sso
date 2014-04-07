@@ -20,9 +20,9 @@ header.ui.floating.inverted.menu.vertical.fixed.left.sidebar#left_bar
     = t 'nav.message'
   .bottom.bar.icon#bottom_bar
     a.item
-      i.mail.icon
+      i.setting.icon
     a.item
       i.mail.icon
-    a.item
-      i.mail.icon
+    = link_to destroy_user_session_path, :method=>'delete', :class => 'item'
+      i.sign.out.icon
  

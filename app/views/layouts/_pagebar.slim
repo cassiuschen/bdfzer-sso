@@ -5,7 +5,10 @@ nav.ui.menu.pagebar
     i.home.icon
     = t "home.menu.index"
   .right.menu
+    = link_to current_user.name, edit_user_registration_path, :class => 'item'
     a.item
-      | kajdf
+      i.setting.icon
     a.item
-      | aisdfoaiushfdoiu
+      i.mail.icon
+    = link_to destroy_user_session_path, :method=>'delete', :class => 'item'
+      i.sign.out.icon
