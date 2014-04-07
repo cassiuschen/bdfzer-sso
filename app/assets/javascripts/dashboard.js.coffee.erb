@@ -18,9 +18,14 @@
 #= require angular-animate
 #= require angular-resource
 #= require angular-touch
+#= require angular-sanitize
+#= require angular-cookies
+#= require angular-route
 #= require_tree ./dashboard
-
-window.App = angular.module('BDFZer', ['ngResource'])
+#= require_tree ./dashboard/controllers
+#= require_tree ./dashboard/resources
+#= require_tree ../templates
+window.Angular_secret = "<%= $app_config['angular_secret']>"
 
 window.base =
 	SideBarCtrl : () ->

@@ -7,9 +7,10 @@ html ng-app="BDFZer"
     = stylesheet_link_tag "dashboard", :media => "all"
     = javascript_include_tag "dashboard"
     = csrf_meta_tags
-  body class=("#{controller_name} #{action_name}") data-controller-name="#{controller_name}" ng-controller="#{@ng_controller}"
+  body class=("#{controller_name} #{action_name}") data-controller-name="#{controller_name}"
     = render 'layouts/leftbar'
     = render 'layouts/pagebar'
-    = yield
+    .ng_content(ng-view)
+      = yield
 
 
