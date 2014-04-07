@@ -1,4 +1,10 @@
-window.App = angular.module('BDFZer', ['ngCookies', 'ngRoute', 'ngSanitize', 'ngResource'])
+window.App = angular.module('BDFZer', [
+	'ngCookies',
+	'ngRoute', 
+	'ngSanitize', 
+	'ngResource', 
+	'UserServer'
+])
 window.App.config(["$httpProvider", (provider) ->
     provider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
     provider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'

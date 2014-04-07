@@ -10,7 +10,8 @@ html ng-app="BDFZer"
   body class=("#{controller_name} #{action_name}") data-controller-name="#{controller_name}"
     = render 'layouts/leftbar'
     = render 'layouts/pagebar'
-    .ng_content(ng-view)
-      = yield
+    .angular_content
+      div(ng-view)
+        = yield
 
 

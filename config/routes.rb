@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       resources :omniauth
       get 'angular/users' => 'angular#users'
       get 'angular/user/:pku_id' => 'angular#user'
+      get 'angular/user' => 'angular#user'
       get 'angular/current_info' => 'angular#current_info'
     end
   end
