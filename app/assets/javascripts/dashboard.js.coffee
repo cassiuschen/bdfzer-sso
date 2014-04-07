@@ -14,5 +14,30 @@
 #= require jquery_ujs
 #= require turbolinks
 #= require semantic-ui
+#= require angular
+#= require angular-animate
+#= require angular-resource
+#= require angular-touch
+#= require_tree ./dashboard
 
+window.App = angular.module('BDFZer', ['ngResource'])
 
+window.base =
+	SideBarCtrl : () ->
+		$left_ctrl = $('#leftbar_control')
+		$left_bar = $('#left_bar')
+		$body = $('body')
+		$bottom = $('#bottom_bar')
+		$left_ctrl.click ()->
+			$left_bar.sidebar({
+				overlay: false
+			}).sidebar 'toggle'
+			if $left_bar.sidebar 'is open' == true
+				$bottom.fadeOut(300)
+			if $left_bar.sidebar 'is close' == true
+				$bottom.fadeIn(300)
+	Init : () ->
+		window.base.SideBarCtrl()
+
+$ ->
+	window.base.Init()

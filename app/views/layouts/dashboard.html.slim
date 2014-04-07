@@ -1,15 +1,15 @@
 doctype html
-html
+html ng-app="BDFZer"
   head
     meta content="width=device-width, initial-scale=0.7, maximum-scale=0.7, user-scalable=no" name="viewport"
     title= content_for?(:title) ? yield(:title) : "北附人身份认证"
     meta content=(content_for?(:description) ? yield(:description) : "北附人身份认证") name="description"
-    = stylesheet_link_tag "application", :media => "all", "data-turbolinks-track" => true
-    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "dashboard"
     = csrf_meta_tags
-  body class=("#{controller_name} #{action_name}") data-controller-name="#{controller_name}"
+  body class=("#{controller_name} #{action_name}") data-controller-name="#{controller_name}" ng-controller="#{@ng_controller}"
     = render 'layouts/leftbar'
-    //= render 'layouts/navbar'
+    = render 'layouts/pagebar'
     = yield
 
 

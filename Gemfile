@@ -48,3 +48,5 @@ gem 'cancancan'
 # Uploader
 gem 'carrierwave'
 gem 'carrierwave-qiniu'
+# Angular
+gem 'angularjs-rails'

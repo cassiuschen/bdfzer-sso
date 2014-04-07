@@ -13,9 +13,19 @@
     left: 0px;
 }
 body {
-    margin-left: $nav-width + 1rem !important;
+    position: fixed;
+    //left: $nav-width !important;
+    top: 0;
+    margin: 0 !important;
+    padding-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    width: 100%;
 }
 
+header.menu.sidebar.large {
+	width: $nav-width !important;
+}
 .header-bar {
 	background-color: lighten(black,30%);
 	padding-bottom: 2rem;
@@ -56,7 +66,7 @@ body {
 	bottom: 0;
 	position: fixed;
 	.item {
-		width: 6rem;
+		width: $nav-width / 3;
 		display: inline-block !important;
 		height: 6rem !important;
 		padding-left: 0 !important;
@@ -64,7 +74,7 @@ body {
 			float: none !important;
 			margin: 0 auto;
 			font-size: 1rem !important;
-			margin-left: ($nav-width / 3 - 1rem) / 2 !important;
+			margin-left: ($nav-width / 3 - 20px) / 2 !important;
 		}
 	}
 }
