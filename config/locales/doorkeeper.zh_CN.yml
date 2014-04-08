@@ -30,6 +30,9 @@ zh_CN:
               invalid_uri: 'must be a valid URI.'
               relative_uri: 'must be an absolute URI.'
   doorkeeper:
+    auth:
+      title: "请求使用你的北附人账号"
+      ability: "这个应用希望获得以下权限："
     errors:
       messages:
         # Common error messages

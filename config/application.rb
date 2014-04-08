@@ -26,16 +26,16 @@ module BDFZerSso
 
     config.to_prepare do
       # Base layout. Uses app/views/layouts/semantic-login.html.erb
-      Doorkeeper::ApplicationController.layout "semantic-login"
+      Doorkeeper::ApplicationController.layout "dashboard"
 
       # Only Applications list
-      Doorkeeper::ApplicationsController.layout "semantic-login"
+      Doorkeeper::ApplicationsController.layout "dashboard"
 
       # Only Authorization endpoint
       Doorkeeper::AuthorizationsController.layout "semantic-login"
 
       # Only Authorized Applications
-      Doorkeeper::AuthorizedApplicationsController.layout "semantic-login"
+      Doorkeeper::AuthorizedApplicationsController.layout "dashboard"
     end
   end
 end
