@@ -12,7 +12,7 @@ http://211.68.73.245/bdfzer_asset/discoursesandbox.png
 
 * Ruby 2.1.1
 
-* Rails 4.1.0.rc1
+* Rails 4.1.0.rc2 (as well as in production mod)
 
 * Redis
 
@@ -25,6 +25,8 @@ http://211.68.73.245/bdfzer_asset/discoursesandbox.png
 * RubyCas-Client (github: 'cassiuschen/rubycas-client', branch: 'feature/UpdateToRails4.1')
 
 * DoorKeeper
+
+* Angular-JS
 
 ==== 功能
 
