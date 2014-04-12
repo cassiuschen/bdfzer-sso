@@ -14,7 +14,7 @@
 #= require jquery_ujs
 #= require turbolinks
 #= require semantic-ui
-#= require_self
+# require_self
 #= require angular
 #= require angular-animate
 #= require angular-resource
@@ -22,9 +22,10 @@
 #= require angular-sanitize
 #= require angular-cookies
 #= require angular-route
+#= require_self
 #= require_tree ./dashboard
-#= require_tree ./dashboard/controllers
 #= require_tree ./dashboard/services
+#= require_tree ./dashboard/controllers
 #= require_tree ../templates
 window.secret = "<%= $app_config['angular_secret'] %>"
 

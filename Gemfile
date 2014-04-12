@@ -1,8 +1,8 @@
 source 'http://mirrors.aliyun.com/rubygems/'
 
-
+ruby '2.1.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.0.rc2'
+gem 'rails', '4.1.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -50,3 +50,6 @@ gem 'carrierwave'
 gem 'carrierwave-qiniu'
 # Angular
 gem 'angularjs-rails'
+# Delay Jobs
+gem 'sidekiq'
+gem 'devise-async'
