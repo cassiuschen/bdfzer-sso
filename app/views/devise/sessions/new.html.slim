@@ -4,6 +4,8 @@ h4
 hr
 
 = form_for resource, :as => resource_name, :url => session_path(resource_name), html: {:class => 'ui form no-label'} do |f| 
+  = devise_error_messages!
+  = custom_devise_error_messages
   .field.string.optional.user_login
     = f.text_field :login, :autofocus => true, :class => 'string optional', :placeholder => "邮箱 或 北大附中学号", :tabindex => "1"
 
