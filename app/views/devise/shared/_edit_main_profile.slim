@@ -1,5 +1,5 @@
 = form_for resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }, html: {:class => 'ui form'} do |f| 
-  = custom_devise_error_messages! 
+  = devise_error_messages! 
   hr
   .ui.accordion
     .active.title

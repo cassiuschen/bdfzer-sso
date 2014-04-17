@@ -6,7 +6,7 @@ nav.ui.menu.pagebar
     = t "home.menu.index"
   .right.menu
     = link_to current_user.name, edit_user_registration_path, :class => 'item'
-    a.item
+    = link_to edit_user_registration_path, :class => 'item'
       i.setting.icon
     a.item
       i.mail.icon

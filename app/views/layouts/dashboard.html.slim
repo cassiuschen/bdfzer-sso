@@ -4,15 +4,14 @@ html ng-app="BDFZer"
     meta content="width=device-width, initial-scale=0.7, maximum-scale=0.7, user-scalable=no" name="viewport"
     title= content_for?(:title) ? yield(:title) : "北附人身份认证"
     meta content=(content_for?(:description) ? yield(:description) : "北附人身份认证") name="description"
-    = stylesheet_link_tag "dashboard", :media => "all"
-    = javascript_include_tag "dashboard"
+    = stylesheet_link_tag "dashboard", :media => "all", "data-turbolinks-track" => true
+    = javascript_include_tag "dashboard", "data-turbolinks-track" => true
     = csrf_meta_tags
   body class=("#{controller_name} #{action_name}") data-controller-name="#{controller_name}"
     = render 'layouts/leftbar'
     = render 'layouts/pagebar'
     - unless Rails.env == 'production'
       .angular_content
-        div(ng-view)
         = yield
     - else
       .ui.dimmer.page.active
