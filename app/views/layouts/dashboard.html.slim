@@ -10,8 +10,32 @@ html ng-app="BDFZer"
   body class=("#{controller_name} #{action_name}") data-controller-name="#{controller_name}"
     = render 'layouts/leftbar'
     = render 'layouts/pagebar'
-    .angular_content
-      div(ng-view)
-      = yield
+    - unless Rails.env == 'production'
+      .angular_content
+        div(ng-view)
+        = yield
+    - else
+      .ui.dimmer.page.active
+        .ui.modal.transition.visible.active
+          .header
+            | 十分抱歉！
+          .content
+            .ui.header
+              | 北附人平台还未完工
+            p
+              | 很抱歉地通知你，北附人平台尚未完工，目前你只可以使用其中部分功能。
+            p 
+              | 如果你希望修改你在北附人所填写的信息或有其他有关目前北附人功能的是由，请致信
+              code chzsh1995@gmail.com
+              |  ，我们将尽快回复你。
+            p
+              | 现在，你可以访问以下服务：
+          .actions
+            a.ui.linkedin.button href='http://discus.bdfzer.com'
+              i.icon.users
+              |  北附人讨论区
+            a.ui.orange.button href='http://yxtimes.org'
+              i.icon.book
+              |  银杏时报
 
 
