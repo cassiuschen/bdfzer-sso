@@ -1,5 +1,11 @@
 require 'sidekiq/web'
 Rails.application.routes.draw do
+  get 'setting/user'
+
+  get 'setting/extra'
+
+  get 'setting/application'
+
   use_doorkeeper
   mount Sidekiq::Web => '/sidekiq'
  #get 'cas_signup/index'
