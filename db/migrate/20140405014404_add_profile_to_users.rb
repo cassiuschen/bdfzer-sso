@@ -4,8 +4,9 @@ class AddProfileToUsers < ActiveRecord::Migration
   	add_column :users, :sex, :string
   	add_column :users, :phone, :string
   	add_column :users, :contact, :hstore
-  	add_column :users, :role, :string,		default: "string"
+  	add_column :users, :role, :integer, default: 0
   	add_column :users, :description, :text
   	add_column :users, :tag, :hstore
+  	add_column :users, :unit, :integer, default: 0
   end
 end

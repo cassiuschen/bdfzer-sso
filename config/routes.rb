@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get 'setting/application'
 
+  post 'setting/update'
+
   use_doorkeeper
   mount Sidekiq::Web => '/sidekiq'
  #get 'cas_signup/index'

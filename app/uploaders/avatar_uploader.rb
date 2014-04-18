@@ -1,19 +1,24 @@
 # encoding: utf-8
-
+require 'carrierwave/processing/mini_magick'
 class AvatarUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
   storage :qiniu
   # storage :fog
 
+  self.qiniu_bucket = "bdfzer-auth"
+  self.qiniu_bucket_domain = "bdfzer-auth.qiniudn.com"
+  self.qiniu_protocal = 'http'
+  self.qiniu_can_overwrite = true
+
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "user_avatar"
+    "user_avatar/#{model.id}"
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
@@ -44,8 +49,15 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  # def filename
-  #   "something.jpg" if original_filename
-  # end
+  def filename
+    "image.#{file.extension}" if original_filename.present?
+  end
+  def qiniu_async_ops
+      commands = []
+      %W(small little middle large).each do |style|
+        commands << "http://#{self.qiniu_bucket_domain}/#{self.store_dir}/#{self.filename}/#{style}"
+      end
+      commands
+  end
 
 end

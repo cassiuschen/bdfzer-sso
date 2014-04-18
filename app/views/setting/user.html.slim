@@ -1,35 +1,10 @@
-= form_for @user, url: setting_user_path, html: {:class => 'ui form'} do |f| 
-  .ui.accordion
-    .active.title
-      i.dropdown.icon
-      | Main Info
-    .active.content
-      .field
-        = f.label :email
-        = f.email_field :email, :autofocus => true 
-
-      .field
-        = f.label :password  
-          i 
-            | leave blank if you don't want to change it
-        = f.password_field :password, :autocomplete => "off" 
-
-      .field
-        = f.label :password_confirmation
-        = f.password_field :password_confirmation 
-
-      .field
-        = f.label :current_password  
-          i 
-            |we need your current password to confirm your changes
-        = f.password_field :current_password 
-    .title
-      i.dropdown.icon
-      | Extra Info
-    .content
-      .field
-        = f.label :email
-        = f.email_field :email, :autofocus => true 
+= form_for @user, url: setting_update_path, html: {:class => 'ui form', :method => 'post'} do |f| 
+  .field
+    = f.label :email
+    = f.email_field :email, :autofocus => true 
+  .field
+    = f.label :avatar
+    = f.file_field :avatar
 
 
   .field

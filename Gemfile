@@ -49,6 +49,7 @@ gem 'cancancan'
 # Uploader
 gem 'carrierwave'
 gem 'carrierwave-qiniu'
+gem 'mini_magick'
 # Angular
 gem 'angularjs-rails'
 # Delay Jobs

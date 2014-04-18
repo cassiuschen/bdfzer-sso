@@ -3,7 +3,10 @@ header.ui.floating.inverted.menu.vertical.fixed.left.sidebar#left_bar
     .bdfzer-logo
     .user-header
       .avatar
-        = image_tag 'demo/avatar.jpg', :class => "circular ui image"
+        - if current_user.avatar
+          = image_tag current_user.avatar, :class => "circular ui image"
+        - else
+          = image_tag 'demo/avatar.jpg', :class => "circular ui image"
       .name
         h3.center.aligned
           = current_user.name
