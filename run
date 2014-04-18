@@ -1,0 +1,2 @@
+puma -e production -C config/puma.rb
+RAILS_ENV=production sidekiq -e production -C config/sidekiq.yml -d
