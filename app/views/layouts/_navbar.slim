@@ -8,7 +8,7 @@ nav.ui.menu.top.navbar.fixed.top
     = t 'nav.message'
   .right.menu
     a.item = current_user.name
-    a.item
+    = link_to edit_user_registration_path, :class => 'item'
       i.settings.icon
       = t 'nav.settings'
     a.item

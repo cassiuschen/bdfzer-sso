@@ -54,3 +54,4 @@ gem 'angularjs-rails'
 # Delay Jobs
 gem 'sidekiq'
 gem 'devise-async'
+gem 'sinatra'

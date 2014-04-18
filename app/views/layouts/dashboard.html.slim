@@ -4,19 +4,18 @@ html ng-app="BDFZer"
     meta content="width=device-width, initial-scale=0.7, maximum-scale=0.7, user-scalable=no" name="viewport"
     title= content_for?(:title) ? yield(:title) : "北附人身份认证"
     meta content=(content_for?(:description) ? yield(:description) : "北附人身份认证") name="description"
-    = stylesheet_link_tag "dashboard", :media => "all"
-    = javascript_include_tag "dashboard"
+    = stylesheet_link_tag "dashboard", :media => "all", "data-turbolinks-track" => true
+    = javascript_include_tag "dashboard", "data-turbolinks-track" => true
     = csrf_meta_tags
   body class=("#{controller_name} #{action_name}") data-controller-name="#{controller_name}"
     = render 'layouts/leftbar'
     = render 'layouts/pagebar'
     - unless Rails.env == 'production'
       .angular_content
-        div(ng-view)
         = yield
     - else
       .ui.dimmer.page.active
-        .ui.modal.transition.visible.active
+        .ui.modal.transition.visible.active style="top: 15%;"
           .header
             | 十分抱歉！
           .content
@@ -24,7 +23,7 @@ html ng-app="BDFZer"
               | 北附人平台还未完工
             p
               | 很抱歉地通知你，北附人平台尚未完工，目前你只可以使用其中部分功能。
-            p 
+            p
               | 如果你希望修改你在北附人所填写的信息或有其他有关目前北附人功能的是由，请致信
               code chzsh1995@gmail.com
               |  ，我们将尽快回复你。
