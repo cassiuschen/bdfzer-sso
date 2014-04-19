@@ -10,7 +10,7 @@ html ng-app="BDFZer"
   body class=("#{controller_name} #{action_name}") data-controller-name="#{controller_name}"
     = render 'layouts/leftbar'
     = render 'layouts/pagebar'
-    - unless Rails.env == 'production'
+    - unless Rails.env == 'production' && current_user.pku_id != '1423101'
       .angular_content
         = yield
     - else
