@@ -31,6 +31,7 @@
     p 
       | 首次使用北附人ID？
       //= link_to "注册帐号", new_registration_path(resource_name) , :class => 'ui pointing left label'
-      = link_to "注册帐号", cas_signup_path , :class => 'ui pointing left label'
+      a.ui.pointing.left.label#show_cas_require 注册帐号
+    = render 'devise/shared/cas_require'
      
    

@@ -1,0 +1,24 @@
+.ui.dimmer.page
+  .ui.test.modal.transition.visible#cas_require
+    .header
+      | 需要登陆北大附中内网
+    .content
+      .ui.header 你是否已登录北大附中内网？
+      p 北附人 是北大附中学生、教师及校友的互联网平台，为了验证身份，注册时我们需要您提供北大附中凭据。
+      p 在校生及教师可以通过登陆北大附中内网系统从而使北附人平台取得凭据，请点击下方链接进入。
+      p 我们将于特定时间为校友提供注册服务，敬请期待。
+    .actions
+      a.ui.youtube.button href="http://portal.pkuschool.edu.cn:81/"
+        i.shield.icon
+        | 前往登陆北大附中内网
+      = link_to cas_signup_path , :class => "ui positive right labeled icon button"
+        | 已登录内网，前往注册
+        i.checkmark.icon
+
+javascript:
+  $('#show_cas_require').click(function() {
+    $('#cas_require')
+        .modal('setting', 'transition', 'horizontal flip')
+        .modal('show')
+      ;
+  });

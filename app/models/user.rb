@@ -66,5 +66,10 @@ class User < ActiveRecord::Base
         self.unit_unknown!
       end
     end
-  end        
+  end 
+
+  protected
+  def confirmation_required?
+    true
+  end       
 end
