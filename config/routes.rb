@@ -24,8 +24,6 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  get 'cas/sign_up' => 'cas_signup#index', as: :cas_signup
-
   namespace :api do
     namespace :v1 do
       resources :omniauth

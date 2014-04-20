@@ -4,14 +4,13 @@ class ApplicationController < ActionController::Base
   #protect_from_forgery with: :exception
   protect_from_forgery with: :null_session
   before_action :configure_permitted_parameters, if: :devise_controller?
-  helper_method :check_if_teacher
-
-  def check_if_teacher
-    self.teacher! if self.id.match(/^F.+/i)
-    self.get_student_info if self.student?
-  end
+  before_action CASClient::Frameworks::Rails::Filter, if: :sign_up?
   
   private
+  def sign_up?
+    !!((controller_name == 'registrations'))
+  end
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << [:name, :pku_id, :email]
     devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :pku_id, :email, :password, :remember_me) }
