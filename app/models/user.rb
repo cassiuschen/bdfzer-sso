@@ -14,8 +14,8 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :confirmable, :lockable, :timeoutable,:omniauthable,
-         :async
+         :confirmable, :lockable, :timeoutable,
+         :async, :omniauthable
   validates :pku_id, :uniqueness => {
     :case_sensitive => false
   }
