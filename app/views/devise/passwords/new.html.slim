@@ -1,0 +1,9 @@
+h2 忘记密码？
+hr
+= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, :class => 'ui form no-label' }) do |f|
+  = devise_error_messages!
+  .field.string.optional.user_login
+    = f.email_field :email, :autofocus => true, :class => 'string optional', :placeholder => "邮箱", :tabindex => "1"
+  = f.submit "找回密码", :class => "ui button submit", :tabindex => "2", :autofocus => true, :style => " margin-top: 10px; margin-bottom: 10px;"
+hr
+= render "devise/shared/links"

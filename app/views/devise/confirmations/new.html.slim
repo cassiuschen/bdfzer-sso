@@ -1,0 +1,13 @@
+h2 重新发送确认邮件
+hr
+= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post, :class => 'ui form no-label'}) do |f|
+  = devise_error_messages!
+
+  .field.string.optional.user_login
+    = f.email_field :email, :autofocus => true, :class => 'string optional', :placeholder => "邮箱", :tabindex => "1"
+
+
+  = f.submit "重新发送确认邮件", :class => "ui button submit", :tabindex => "2", :autofocus => true, :style => " margin-top: 10px; margin-bottom: 10px;"
+
+hr
+= render "devise/shared/links"
