@@ -1,7 +1,12 @@
 h4 
   span 使用北大附中内网注册北附人ID
 p 
-  | #{session[:cas_user]}你好，成功注册后，你将可以利用北大附中内网的用户认证直接登陆北附人ID。
+  | 北附人ID使用邮箱和北大附中学号作为登陆凭据，为避免离校后系统消息的正常推送与系统功能的使用，我们
+  b 强烈不建议
+  | 你使用后缀为
+  code
+    | pkuschool.edu.cn
+  | 的邮箱作为北附人注册邮箱。
 hr
 = form_for @user, :url => registration_path(@user), html: {:class => 'ui form no-label'} do |f|
   .field.string.optional

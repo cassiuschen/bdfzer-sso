@@ -14,3 +14,7 @@
 
 @import "semantic-ui";
 @import "login-form";
+
+body {
+	position: static !important;
+}
