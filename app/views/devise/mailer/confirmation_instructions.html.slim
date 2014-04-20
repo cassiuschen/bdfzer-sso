@@ -1,0 +1,7 @@
+h3
+  | 欢迎你,#{@email}, 来到北附人平台
+p
+  | 为了保证服务的顺利进行，我们将对你的电子邮箱进行验证，请点击下方链接进行验证：
+
+p
+  = link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @token)
