@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   enum role: { student: 0, teacher: 1 }
-  enum unit: { 
+  enum unit: {
     unit_unknown: 0,
     unit_one:       1,
     unit_two:       2,
@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
     unit_four:      4,
     unit_five:      5,
     unit_six:       6,
-    unit_seven:    7 
+    unit_seven:    7
   }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -66,10 +66,10 @@ class User < ActiveRecord::Base
         self.unit_unknown!
       end
     end
-  end 
+  end
 
   protected
   def confirmation_required?
     true
-  end       
+  end
 end
