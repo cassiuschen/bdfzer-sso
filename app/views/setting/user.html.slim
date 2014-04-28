@@ -1,15 +1,53 @@
-= form_for @user, url: setting_update_path, html: {:class => 'ui form', :method => 'post'} do |f| 
-  .field
-    = f.label :email
-    = f.email_field :email, :autofocus => true 
-  .field
-    = f.label :avatar
-    = f.file_field :avatar
+= form_for @user, url: setting_update_path, html: {:class => 'ui fluid accordion', :method => 'post'} do |f| 
+  .active.title
+    i.dropdown.icon
+    | 核心信息
+  .active.content
+    .ui.info.message
+      .header
+        | 请注意！
+      ul.list
+        li 核心信息只可更改电子邮件一项
+        li 其余信息若有问题请联系管理员进行更改
+    .ui.form
+      .two.fields
+        .field
+          label 
+            | 电子邮箱
+          = f.email_field :email, :autofocus => true 
+        .field
+          label 
+            | 北大附中学号
+          input placeholder="#{@user.pku_id}" readonly="readonly" type="text"
+      .inline.fields
+        .field
+          label 
+            | 北大附中身份
+          - tgern = @user.grade.to_s + t('basic.generation')
+          input placeholder="#{tgern}" readonly="readonly" type="text"
+        .field
+          - tunit = "user.unit." + @user.unit
+          input placeholder = t(tunit) readonly="readonly" type="text"
+        .field
+          - trole = "user.role." + @user.role
+          input placeholder = t(trole) readonly="readonly" type="text"
+  .title
+    i.dropdown.icon
+    | 基本信息
+  .content
+  	.field.inline
+      label 更改头像
+      = f.file_field :avatar, html: {:class => "ui blue button"}
+        i.cloud.upload.icon
+        | 上传头像
 
 
   .field
     = f.submit "Update", :class => "ui button submit"
-  
+
+/, html: {:class => "ui blue button"}
+ /       i.cloud.upload.icon
+ /       | 上传头像
 
 javascript:
   $('.ui.accordion').accordion();

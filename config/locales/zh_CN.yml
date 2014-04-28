@@ -29,3 +29,18 @@ zh_CN:
     student: "学生"
     admin: "管理员"
     teacher: "教师"
+  basic:
+    generation: "届"
+  user:
+    role:
+      teacher: "教师"
+      student: "学生"
+    unit:
+      unit_one: "格物书院"
+      unit_two: "致知书院"
+      unit_three: "诚意书院"
+      unit_four: "正心书院"
+      unit_five: "元培书院"
+      unti_six: "博雅书院"
+      unit_seven: "道尔顿书院"
+      unit_unknown: "未知"
