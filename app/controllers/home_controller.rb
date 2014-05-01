@@ -4,6 +4,7 @@ class HomeController < ApplicationController
   before_action :save_to_session
   def index
     @ng_controller = "home"
+    @feeds = current_user.feeds
   end
 
   def about

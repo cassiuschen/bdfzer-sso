@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :feeds
   enum role: { student: 0, teacher: 1 }
   enum unit: {
     unit_unknown: 0,
@@ -20,9 +21,12 @@ class User < ActiveRecord::Base
     :case_sensitive => false
   }
   mount_uploader :avatar, AvatarUploader
+
   after_create do
     self.teacher! if !!(self.pku_id.match(/^F.+/i))
     self.get_student_info if self.student?
+    self.init_contact
+    self.first_feed
   end
 
   attr_accessor :login
@@ -38,17 +42,17 @@ class User < ActiveRecord::Base
 
   def self.build_methods_to_find_students_in(*units)
     units.each do |unit|
-      class_eval %Q{
-        def students_in_#{unit}
-          User.where("unit <> ?", User.units[:#{unit}])
+      self.class_eval %Q{
+        def self.students_in_#{unit}
+          User.where("unit = ?", User.units[unit])
         end
       }
     end
   end
 
   build_methods_to_find_students_in :unit_one, :unit_two, :unit_unknown,
-                                              :unit_three, :unit_four,
-                                              :unit_five, :unit_six, :unit_seven
+                                    :unit_three, :unit_four,
+                                    :unit_five, :unit_six, :unit_seven
 
   def get_student_info
     self.pku_id =~ /^(..)(.)(.)/
@@ -66,6 +70,24 @@ class User < ActiveRecord::Base
         self.unit_unknown!
       end
     end
+  end
+  def init_contact
+    self.contact = {
+      "qq" => "",
+      "wechat" => "",
+      "weibo" => "",
+      "renren" => ""
+    }
+    self.save
+  end
+
+  def first_feed
+    f = self.feeds.new
+    f.provider = 0
+    f.body = <<-HTML
+      创建了北附人账号。
+    HTML
+    f.save
   end
 
   protected

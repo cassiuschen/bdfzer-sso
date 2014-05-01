@@ -16,6 +16,7 @@
 #= require turbolinks
 #= require semantic-ui
 #= require simditor
+#= require timeago
 #= require angular
 #= require angular-animate
 #= require angular-resource
@@ -50,11 +51,13 @@ window.base =
 			return data.pku_id
 	Init : () ->
 		window.base.SideBarCtrl()
+		$(".timeago").timeago()
 
 $ ->
 	#window.base.Init()
 	if $.turbo.isReady == true
 		window.base.Init()
+		$(".timeago").timeago()
 
 #$(document).on 'click', 'button', () ->
 #	window.base.Init()

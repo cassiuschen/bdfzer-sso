@@ -9,16 +9,8 @@ Rails.application.routes.draw do
   post 'setting/update'
 
   use_doorkeeper
+  
   mount Sidekiq::Web => '/sidekiq'
- #get 'cas_signup/index'
-
-  get 'home/index'
-
-  get 'home/about'
-
-  get 'home/status'
-
-  get 'home/list'
 
   devise_for :users
 

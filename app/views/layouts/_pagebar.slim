@@ -1,7 +1,7 @@
 nav.ui.menu.pagebar
   a.item#leftbar_control
     i.reorder.icon
-  = link_to home_index_path, :class => "blue item #{'active'if controller_name == 'home'}"
+  = link_to root_path, :class => "blue item #{'active'if controller_name == 'home'}"
     i.home.icon
     = t "nav.home"
   .right.menu

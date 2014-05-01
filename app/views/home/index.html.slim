@@ -1,8 +1,24 @@
-.angular_content
-  h1 Home#index
-  p Find me in app/views/home/index.html.slim
-
-  p = current_user.name
-  p = current_user.id
-  p = current_user.pku_id
-  = link_to 'Log out', destroy_user_session_path, :method=>'delete'	
+.angular_content (ng-app="BDFZer")
+  .ui.grid
+    .ten.wide.column
+      .ui.feed
+        - for feed in @feeds do
+          - u = User.where(id: "#{feed.user_id}".to_i).first
+          .event
+            .label
+              - case feed.provider
+              - when "system"
+                i.circular.setting.icon
+            .content
+              = timeago(feed.created_at, class: "date")
+              .summary
+                - if u == current_user
+                 | 你
+                - else
+                  a href="/users" 
+                    = u.name 
+                == feed.body
+    .two.wide.column
+      .ui.list
+        .item
+          
