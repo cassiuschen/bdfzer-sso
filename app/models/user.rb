@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :feeds
+  has_many :tweets
   enum role: { student: 0, teacher: 1 }
   enum unit: {
     unit_unknown: 0,

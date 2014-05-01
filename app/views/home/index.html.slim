@@ -1,4 +1,10 @@
 .angular_content (ng-app="BDFZer")
+  = form_tag api_v1_create_tweet_path, method: "post", :class => 'ui form'
+    = text_field_tag :tweet
+    = hidden_field_tag :user, "#{current_user.id}"
+    = hidden_field_tag :secret, "#{Rails.application.secrets.secret_key_base}"
+    = submit_tag "发布状态", :class => "ui button positive"
+
   .ui.grid
     .ten.wide.column
       .ui.feed
@@ -21,4 +27,3 @@
     .two.wide.column
       .ui.list
         .item
-          

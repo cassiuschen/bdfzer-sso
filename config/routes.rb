@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       get 'angular/user/:pku_id' => 'angular#user'
       get 'angular/user' => 'angular#user'
       get 'angular/current_info' => 'angular#current_info'
+      post 'tweet' => 'tweet#create', as: 'create_tweet'
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.
