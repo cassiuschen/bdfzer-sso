@@ -1,49 +1,93 @@
-= form_for @user, url: setting_update_path, html: {:class => 'ui fluid accordion', :method => 'post'} do |f| 
-  .active.title
-    i.dropdown.icon
-    | 核心信息
-  .active.content
-    .ui.info.message
-      .header
-        | 请注意！
-      ul.list
-        li 核心信息只可更改电子邮件一项
-        li 其余信息若有问题请联系管理员进行更改
-    .ui.form
-      .two.fields
+= form_for @user, url: setting_update_path, html: {:class => 'setting-user', :method => 'post'} do |f| 
+  .ui.fluid.accordion
+    .active.title
+      i.dropdown.icon
+      | 核心信息
+    .active.content
+      .ui.info.message
+        .header
+          | 请注意！
+        ul.list
+          li 核心信息只可更改电子邮件一项
+          li 其余信息若有问题请联系管理员进行更改
+      .ui.form
+        .two.fields
+          .field
+            label 
+              | 电子邮箱
+            = f.email_field :email, :autofocus => true 
+          .field
+            label 
+              | 北大附中学号
+            input placeholder="#{@user.pku_id}" readonly="readonly" type="text"
+        .inline.fields
+          .field
+            label 
+              | 北大附中身份
+            - tgern = @user.grade.to_s + t('basic.generation')
+            input placeholder="#{tgern}" readonly="readonly" type="text"
+          .field
+            - tunit = "user.unit." + @user.unit
+            input placeholder = t(tunit) readonly="readonly" type="text"
+          .field
+            - trole = "user.role." + @user.role
+            input placeholder = t(trole) readonly="readonly" type="text"
+    .title
+      i.dropdown.icon
+      | 基本信息
+    .content
+      .ui.form.fluid
+        .field.inline
+          label 更改头像
+          = f.file_field :avatar, html: {:class => "ui blue button"}
+            i.cloud.upload.icon
+            | 上传头像
+        .two.fields
+          .field
+            label 
+              | 性别
+            .ui.selection.dropdown
+              = f.hidden_field :sex
+              .default.text 请选择一个性别
+              i.dropdown.icon
+              .menu
+                .item data-value="male" 男
+                .item data-value="female" 女
+          .field
+            label 
+              | 手机
+            = f.telephone_field :phone
+    .title
+      i.dropdown.icon
+      | 额外信息
+    .content
+      .ui.form.fluid
         .field
-          label 
-            | 电子邮箱
-          = f.email_field :email, :autofocus => true 
-        .field
-          label 
-            | 北大附中学号
-          input placeholder="#{@user.pku_id}" readonly="readonly" type="text"
-      .inline.fields
-        .field
-          label 
-            | 北大附中身份
-          - tgern = @user.grade.to_s + t('basic.generation')
-          input placeholder="#{tgern}" readonly="readonly" type="text"
-        .field
-          - tunit = "user.unit." + @user.unit
-          input placeholder = t(tunit) readonly="readonly" type="text"
-        .field
-          - trole = "user.role." + @user.role
-          input placeholder = t(trole) readonly="readonly" type="text"
-  .title
-    i.dropdown.icon
-    | 基本信息
-  .content
-  	.field.inline
-      label 更改头像
-      = f.file_field :avatar, html: {:class => "ui blue button"}
-        i.cloud.upload.icon
-        | 上传头像
+          label 个人描述
+          = f.text_area :description
+        = f.fields_for :contact do |contact_form|
+          .two.fields
+            .field
+              label 
+                | QQ
+              = contact_form.text_field :qq, value: "#{@user.contact["qq"]}"
+            .field
+              label 
+                | 微信
+              = contact_form.text_field :wechat, value: "#{@user.contact["wechat"]}"
+          .two.fields
+            .field
+              label 
+                | 人人
+              = contact_form.text_field :renren, value: "#{@user.contact["renren"]}"
+            .field
+              label 
+                | 微博
+              = contact_form.text_field :weibo, value: "#{@user.contact["weibo"]}"
 
 
-  .field
-    = f.submit "Update", :class => "ui button submit"
+
+  = f.submit "Update", :class => "ui button submit"
 
 /, html: {:class => "ui blue button"}
  /       i.cloud.upload.icon
@@ -51,3 +95,13 @@
 
 javascript:
   $('.ui.accordion').accordion();
+  $('.ui.selection.dropdown').dropdown();
+  
+
+
+  //var editor;
+  //editor = new Simditor({
+//    textarea: $('.simditor'),
+//    upload: true,
+//    toolbar: ['bold', 'italic', 'underline', '|', 'ol', 'ul', 'blockquote', 'code', '|', 'link', 'image', '|', 'indent', 'outdent', '|', 'hr', 'table']
+//  });

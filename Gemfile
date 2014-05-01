@@ -1,4 +1,4 @@
-source 'http://mirrors.aliyun.com/rubygems'
+source 'https://ruby.taobao.org'
 
 ruby '2.1.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -56,3 +56,5 @@ gem 'angularjs-rails'
 gem 'sidekiq'
 gem 'devise-async'
 gem 'sinatra'
+# Editor
+gem 'simditor-rails'

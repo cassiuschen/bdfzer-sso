@@ -14,7 +14,7 @@
 #= require jquery_ujs
 #= require turbolinks
 #= require semantic-ui
-# require_self
+#= require simditor
 #= require angular
 #= require angular-animate
 #= require angular-resource
@@ -51,4 +51,9 @@ window.base =
 		window.base.SideBarCtrl()
 
 $ ->
+	window.base.Init()
+	if $.turbo.isReady == true
+		window.base.Init()
+
+$(document).on 'click', 'button', () ->
 	window.base.Init()

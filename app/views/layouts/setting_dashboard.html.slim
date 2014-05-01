@@ -1,17 +1,17 @@
 doctype html
 html ng-app="BDFZer"
   head 
-    meta content="width=1280px, initial-scale=0.7, maximum-scale=0.7" name="viewport"
+    meta content="width=device-width, initial-scale=0.7, maximum-scale=0.7, user-scalable=no" name="viewport"
     title = content_for?(:title) ? yield(:title) : "北附人身份认证"
     meta content=(content_for?(:description) ? yield(:description) : "北附人身份认证") name="description"
     = stylesheet_link_tag "dashboard", :media => "all", "data-turbolinks-track" => true
     = javascript_include_tag "dashboard", "data-turbolinks-track" => true
     = csrf_meta_tags
-  body class=("#{controller_name} #{action_name}") data-controller-name="#{controller_name}"
+  body class=("#{controller_name} #{action_name}") data-controller-name="#{controller_name}" sroll="auto"
     = render 'layouts/leftbar'
     = render 'layouts/pagebar'
     .ui.grid
-      .row.setting_header
+      .srow.setting_header
         h2.ui.header 
           i.settings.icon
           .content

@@ -1,4 +1,4 @@
-.row.setting_header {
+.srow.setting_header {
 	text-shadow: 0 1px 3px #222;
 	background: #202021 asset_url("setting_header.png") center repeat;
 	padding-left: 5% !important;
@@ -8,7 +8,7 @@
 	color: white;
 	.sub.header { color:white; }
 }
-.row.setting_content {
+.srow.setting_content {
 	.column:first-child {
 		padding-left: 5% !important;
 	}

@@ -11,16 +11,21 @@
 //
 // require_tree .
 //= require_self
+//= require simditor
 
 @import "semantic-ui";
 @import "mixin";
 @import "var";
 @import "navbar";
 @import 'pagebar';
-@import "login-form";
+//@import "login-form";
 @import "setting";
 .angular_content {
 	margin-left: 60px;
 	margin-right: 60px;
 	margin-bottom: 60px;
+}
+html {
+	overflow-y: auto;
+	overflow-x: hidden;
 }

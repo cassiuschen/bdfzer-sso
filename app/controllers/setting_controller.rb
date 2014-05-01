@@ -27,6 +27,6 @@ class SettingController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:email, :avatar)
+    params.require(:user).permit(:email, :avatar, :sex, :phone, :contact => [:qq, :wechat, :renren, :weibo])
   end
 end
