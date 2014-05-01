@@ -86,8 +86,10 @@
               = contact_form.text_field :weibo, value: "#{@user.contact["weibo"]}"
 
 
-
-  = f.submit "Update", :class => "ui button submit"
+  .ui.buttons.submition
+    = link_to "取消", setting_user_path, :class => "ui button"
+    .or
+    = f.submit "更新设置", :class => "ui button positive"
 
 /, html: {:class => "ui blue button"}
  /       i.cloud.upload.icon

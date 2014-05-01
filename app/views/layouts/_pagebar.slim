@@ -3,10 +3,10 @@ nav.ui.menu.pagebar
     i.reorder.icon
   = link_to home_index_path, :class => "blue item #{'active'if controller_name == 'home'}"
     i.home.icon
-    = t "home.menu.index"
+    = t "nav.home"
   .right.menu
     = link_to current_user.name, edit_user_registration_path, :class => 'item'
-    = link_to setting_user_path, :class => 'item'
+    = link_to setting_user_path, :class => "item red #{'active' if controller_name == 'setting'}"
       i.setting.icon
     a.item
       i.mail.icon

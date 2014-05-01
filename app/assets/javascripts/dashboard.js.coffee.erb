@@ -12,6 +12,7 @@
 #
 #= require jquery
 #= require jquery_ujs
+#= require jquery.turbolinks
 #= require turbolinks
 #= require semantic-ui
 #= require simditor
@@ -51,9 +52,9 @@ window.base =
 		window.base.SideBarCtrl()
 
 $ ->
-	window.base.Init()
+	#window.base.Init()
 	if $.turbo.isReady == true
 		window.base.Init()
 
-$(document).on 'click', 'button', () ->
-	window.base.Init()
+#$(document).on 'click', 'button', () ->
+#	window.base.Init()

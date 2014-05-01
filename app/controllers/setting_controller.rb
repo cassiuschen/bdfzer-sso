@@ -1,6 +1,6 @@
 class SettingController < ApplicationController
   before_action :authenticate_user!
-  layout 'layouts/setting_dashboard'
+  layout 'layouts/dashboard'
 
   def user
     @user = current_user
