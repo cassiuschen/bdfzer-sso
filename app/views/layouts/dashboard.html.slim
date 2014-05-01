@@ -10,7 +10,7 @@ html
   body class=("#{controller_name} #{action_name}") data-controller-name="#{controller_name}"
     = render 'layouts/leftbar'
     = render 'layouts/pagebar'
-    - unless Rails.env == 'production' && current_user.pku_id != '1423101'
+    - unless Rails.env == 'production' && current_user.pku_id != '1423101' || controller_name == 'setting'
       - if controller_name == 'setting'
         .ui.grid
           .srow.setting_header
