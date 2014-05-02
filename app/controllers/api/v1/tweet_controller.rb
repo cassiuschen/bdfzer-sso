@@ -2,7 +2,7 @@ class Api::V1::TweetController < Api::V1::BaseController
   #doorkeeper_for :all
 
   def create
-    user = User.where(id: user_params).first
+    user = User.where(id: user_params.to_i).first
     @tweet = user.tweets.new
     @tweet.body = tweet_body
     respond_to do |format|
@@ -29,13 +29,19 @@ class Api::V1::TweetController < Api::V1::BaseController
     end
   end
 
+  def show
+    @tweet = User.where(pku_id: user_params).first.tweets.sort {|f| Time.now - f.created_at}
+
+    render json: @tweet
+  end
+
   private
   def tweet_body
     params[:tweet]
   end
 
   def user_params
-    params[:user].to_i
+    params[:user]
   end
 
   def tweet_id_params

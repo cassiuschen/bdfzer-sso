@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       get 'angular/current_info' => 'angular#current_info'
       post 'tweet' => 'tweet#create', as: 'create_tweet'
       delete 'tweet/:tweet_id' => 'tweet#delete', as: 'delete_tweet'
+      get 'tweet/:user' => 'tweet#show', as: 'show_tweet'
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.

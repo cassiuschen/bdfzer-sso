@@ -1,17 +1,25 @@
-.angular_content (ng-app="BDFZer")
-  = form_tag api_v1_create_tweet_path, method: "post", :class => 'ui form'
-    = hidden_field_tag :user, "#{current_user.id}"
-    = hidden_field_tag :secret, "#{Rails.application.secrets.secret_key_base}"
+.angular_content(ng-app="BDFZer" ng-controller="TweetController") 
+  .ui.form 
     .ui.action.input
-      = text_field_tag :tweet
-      .ui.teal.right.labeled.icon.button
-        = hidden_field_tag '发布状态'
+      input#tweet name="tweet" type="text" ng-model="tweet"
+      a.ui.teal.right.labeled.icon.button ng-click="create_tweet()"
         i.icon.bullhorn
         | 发布状态
 
   .ui.grid
     .ten.wide.column
       .ui.comments
+        .new_tweet ng-repeat="tweet in new_tweets"
+          .comment
+            a.avatar
+             img src="{{tweet.user_avatar}}" alt="Avatar"
+            .content
+              a.author 
+                | {{tweet.user_name}}
+              .metadata
+                | {{tweet.date}}
+              .text
+                | {{tweet.body}}
         - for tweet in @tweets
           - u = User.where(id: tweet.user_id).first
           .comment
@@ -24,7 +32,7 @@
               .text
                 == tweet.body
               .actions
-                a.replay Replay
+                a.reply Reply
                 - if u = current_user
                   - uri = "/api/v1/tweet/#{tweet.id}"
                   = link_to 'Delete', uri, method: 'delete', class: 'delete', data:{confirm:'Are you sure?'}
@@ -49,3 +57,10 @@
     .two.wide.column
       .ui.list
         .item
+          | {{user}}
+          br
+          | {{secret}}
+          br
+          | {{tweet}}
+          br
+          | {{current_user.id}}
