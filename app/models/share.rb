@@ -1,19 +1,15 @@
-class Tweet < ActiveRecord::Base
+class Share < ActiveRecord::Base
   belongs_to :user
   has_many :comments
-
-  after_save do
-  	self.create_feed
-  end
 
   def create_feed
   	u = User.where("id = ?", self.user_id).first
   	f = u.feeds.new
-  	f.provider = 1
+  	f.provider = 7
   	f.body = <<-HTML
-  	  发布了一条状态:
+  	  分享了:
   	  <div class="extra text">
-  	  #{self.body}
+  	  #{self.origin_body}
   	  </div>
   	HTML
   	f.save

@@ -1,12 +1,34 @@
 .angular_content (ng-app="BDFZer")
   = form_tag api_v1_create_tweet_path, method: "post", :class => 'ui form'
-    = text_field_tag :tweet
     = hidden_field_tag :user, "#{current_user.id}"
     = hidden_field_tag :secret, "#{Rails.application.secrets.secret_key_base}"
-    = submit_tag "发布状态", :class => "ui button positive"
+    .ui.action.input
+      = text_field_tag :tweet
+      .ui.teal.right.labeled.icon.button
+        = hidden_field_tag '发布状态'
+        i.icon.bullhorn
+        | 发布状态
 
   .ui.grid
     .ten.wide.column
+      .ui.comments
+        - for tweet in @tweets
+          - u = User.where(id: tweet.user_id).first
+          .comment
+            a.avatar
+              = image_tag u.avatar
+            .content
+              a.author = u.name
+              .metadata
+                = timeago(tweet.created_at, class: 'date')
+              .text
+                == tweet.body
+              .actions
+                a.replay Replay
+                - if u = current_user
+                  - uri = "/api/v1/tweet/#{tweet.id}"
+                  = link_to 'Delete', uri, method: 'delete', class: 'delete', data:{confirm:'Are you sure?'}
+      hr
       .ui.feed
         - for feed in @feeds do
           - u = User.where(id: "#{feed.user_id}".to_i).first

@@ -16,6 +16,19 @@ class Api::V1::TweetController < Api::V1::BaseController
     end
   end
 
+  def delete
+    @tweet = Tweet.where(id: tweet_id_params).first
+    respond_to do |format|
+      if @tweet.destroy!
+        format.html { redirect_to root_path, notice: 'tweet was successfully delete.' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to root_path, notice: 'tweet was hardly delete.'}
+        format.json { render json: @tweet.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
   def tweet_body
     params[:tweet]
@@ -23,5 +36,9 @@ class Api::V1::TweetController < Api::V1::BaseController
 
   def user_params
     params[:user].to_i
+  end
+
+  def tweet_id_params
+    params[:tweet_id].to_i
   end
 end

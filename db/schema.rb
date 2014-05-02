@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140501142846) do
+ActiveRecord::Schema.define(version: 20140502014349) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,18 @@ ActiveRecord::Schema.define(version: 20140501142846) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "comments", force: true do |t|
+    t.integer  "commenter_id"
+    t.text     "body"
+    t.integer  "tweet_id"
+    t.integer  "share_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["share_id"], name: "index_comments_on_share_id", using: :btree
+  add_index "comments", ["tweet_id"], name: "index_comments_on_tweet_id", using: :btree
 
   create_table "feeds", force: true do |t|
     t.integer  "provider",   default: 0
@@ -73,6 +85,18 @@ ActiveRecord::Schema.define(version: 20140501142846) do
   end
 
   add_index "oauth_applications", ["uid"], name: "index_oauth_applications_on_uid", unique: true, using: :btree
+
+  create_table "shares", force: true do |t|
+    t.integer  "origin_user_id"
+    t.integer  "kind"
+    t.text     "origin_body"
+    t.text     "body"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "shares", ["user_id"], name: "index_shares_on_user_id", using: :btree
 
   create_table "tweets", force: true do |t|
     t.string   "body"

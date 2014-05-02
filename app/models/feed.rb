@@ -7,6 +7,7 @@ class Feed < ActiveRecord::Base
   	article: 3,
   	yxtimes: 4,
   	discus: 5,
-  	event: 6
+  	event: 6,
+    share: 7
   }
 end

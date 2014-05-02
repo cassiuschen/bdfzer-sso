@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  origin_user_id: 1
+  kind: 1
+  origin_body: MyText
+  body: MyText
+  user_id: 
+
+two:
+  origin_user_id: 1
+  kind: 1
+  origin_body: MyText
+  body: MyText
+  user_id: 

@@ -4,7 +4,8 @@ class HomeController < ApplicationController
   before_action :save_to_session
   def index
     @ng_controller = "home"
-    @feeds = current_user.feeds
+    @feeds = current_user.feeds.sort {|f| Time.now - f.created_at}
+    @tweets = Tweet.all.sort {|f| Time.now - f.created_at}
   end
 
   def about
