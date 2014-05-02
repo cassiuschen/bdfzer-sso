@@ -1,11 +1,13 @@
 window.App.controller 'TweetController', [
-	'$scope', 
-	'$http', 
-	'$cookies', 
+	'$scope',
+	'$http',
+	'$cookies',
 	'CurrentUser',
 	($scope, $http, $cookies, CurrentUser) ->
 		$scope.current_user = CurrentUser.get()
-
+		
+		window.$scope = $scope
+	
 		$scope.new_tweets = []
 
 		$scope.create_tweet = () ->
