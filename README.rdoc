@@ -12,9 +12,11 @@ http://211.68.73.245/bdfzer_asset/discoursesandbox.png
 
 * Ruby 2.1.1
 
-* Rails 4.1.0.rc2 (as well as in production mod)
+* Rails 4.1.0
 
 * Redis
+
+* Sidekiq
 
 * Postgresql 9.1+
 

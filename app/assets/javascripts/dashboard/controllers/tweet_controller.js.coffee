@@ -1,9 +1,12 @@
-window.App.controller 'TweetController', [
+@TweetController = window.App.controller 'TweetController', [
 	'$scope', 
 	'$http', 
 	'$cookies', 
 	'CurrentUser',
 	($scope, $http, $cookies, CurrentUser) ->
+		
+		window.$scope = $scope
+
 		$scope.current_user = CurrentUser.get()
 
 		$scope.new_tweets = []
@@ -26,3 +29,4 @@ window.App.controller 'TweetController', [
 							user_name: $scope.current_user.name,
 							user_avatar: "http://bdfzer-auth.qiniudn.com/user_avatar/#{$scope.current_user.id}/avatar.jpg"
 ]
+@TweetController.$inject = ['$scope', '$http', '$cookies', 'CurrentUser']
