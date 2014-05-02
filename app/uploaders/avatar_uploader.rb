@@ -50,7 +50,7 @@ process :resize_to_fill => [240, 240]
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   def filename
-    "image.#{file.extension}" if original_filename.present?
+    "avatar.#{file.extension}" if original_filename.present?
   end
   def qiniu_async_ops
       commands = []
