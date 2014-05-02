@@ -4,8 +4,8 @@ class Api::V1::OmniauthController < Api::V1::BaseController
   def index
     hash = {
       provider: 'bdfzer',
-      id: current_resource_owner.id.to_s,
-      uid: current_resource_owner.id.to_s,
+      id: current_resource_owner.pku_id.to_s,
+      uid: current_resource_owner.pku_id.to_s,
       info: {
         email: current_resource_owner.email,
         name: current_resource_owner.name,
