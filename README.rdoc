@@ -40,14 +40,17 @@ http://211.68.73.245/bdfzer_asset/discoursesandbox.png
 
 * Oauth2.0 认证下的用户信息API
 
+* 用户活动跟踪
+
+* 用户发状态、评论、分享
+
+* 所有功能加密API服务
+
 ==== TO-DO List
 
 * 权限设置
 
-* 完善用户信息
+* 发照片
 
-* 增加主站功能
-
-* Deployment instructions
-
+* 前端设计
 
