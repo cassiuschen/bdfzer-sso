@@ -40,10 +40,10 @@ module BDFZerSso
 
       # Assets
     config.assets.enabled = true
-    config.assets.version = '1.0'
+    config.assets.version = '1.1.1'
     # Compress JavaScripts and CSS.
     config.assets.js_compressor = :uglifier
-    # config.assets.css_compressor = :sass
+    config.assets.css_compressor = :sass
     config.assets.precompile += %w(dashboard.js dashboard.css mobile.css mobile.js)
   end
 end
