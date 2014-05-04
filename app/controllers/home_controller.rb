@@ -17,6 +17,10 @@ class HomeController < ApplicationController
   def list
   end
 
+  def redirect
+    redirect_to root_path
+  end
+
   private
   def save_to_session
     session[:pku_id] = current_user.pku_id

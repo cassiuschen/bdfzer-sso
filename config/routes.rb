@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   post 'setting/update'
 
   use_doorkeeper
+
+  get '/users' => 'home#redirect'
   
   mount Sidekiq::Web => '/sidekiq'
 
