@@ -15,10 +15,10 @@ class Api::V1::OmniauthController < Api::V1::BaseController
       extra: {
         name: current_resource_owner.name,
         pku_id: current_resource_owner.pku_id,
-        contact: current_resource_owner.contact.
+        contact: current_resource_owner.contact,
         grade: current_resource_owner.grade,
         unit: current_resource_owner.unit.to_s,
-        sex: current_resource_owner.sex,
+        sex: current_resource_owner.sex
       }
     }
 
