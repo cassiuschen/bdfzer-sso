@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_many :tweets
   has_many :shares
   
-  enum role: { student: 0, teacher: 1 }
+  enum role: { student: 0, teacher: 1, admin: 3 }
   enum unit: {
     unit_unknown: 0,
     unit_one:       1,
@@ -20,14 +20,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable, :timeoutable,
          :async, :omniauthable
-  validates :pku_id, :uniqueness => {
-    :case_sensitive => false
-  }
+
   mount_uploader :avatar, AvatarUploader
 
   after_create do
-    self.teacher! if !!(self.pku_id.match(/^F.+/i))
-    self.get_student_info if self.student?
+    #self.teacher! if !!(self.pku_id.match(/^F.+/i))
+    #self.get_student_info if self.student?
     self.init_contact
     self.first_feed
   end

@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    meta content="width=device-width, initial-scale=0.7, maximum-scale=0.7, user-scalable=no" name="viewport"
+    title= content_for?(:title) ? yield(:title) : "北附人身份认证"
+    meta content=(content_for?(:description) ? yield(:description) : "北附人身份认证") name="description"
+    = stylesheet_link_tag "mobile", :media => "all", "data-turbolinks-track" => true
+    = javascript_include_tag "mobile", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  body class=("#{controller_name} #{action_name}") data-controller-name="#{controller_name}"
+    #bg-img
+    .login-container
+      .subscribe
+        .subscribe-wrapper
+          .subscribe-form
+            .stripes.top
+            .subscribe-space
+              = yield
+            .stripes.bottom
+
+

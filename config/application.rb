@@ -44,7 +44,7 @@ module BDFZerSso
     # Compress JavaScripts and CSS.
     config.assets.js_compressor = :uglifier
     # config.assets.css_compressor = :sass
-    config.assets.precompile += %w( dashboard.js dashboard.css)
+    config.assets.precompile += %w(dashboard.js dashboard.css mobile.css mobile.js)
   end
 end
 

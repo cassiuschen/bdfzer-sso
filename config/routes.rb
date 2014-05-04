@@ -1,5 +1,9 @@
 require 'sidekiq/web'
 Rails.application.routes.draw do
+  get 'mobile/index'
+
+  get 'mobile/dashboard'
+
   get 'setting/user'
 
   get 'setting/extra'
@@ -9,12 +13,14 @@ Rails.application.routes.draw do
   post 'setting/update'
 
   use_doorkeeper
+
+  get '/users' => 'home#redirect'
   
   mount Sidekiq::Web => '/sidekiq'
 
   devise_for :users
 
-  root 'home#index'
+  root 'home#index' 
 
   namespace :api do
     namespace :v1 do

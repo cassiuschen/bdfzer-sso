@@ -53,7 +53,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options={:host=>'http://auth.bdfzer.com'}
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-  config.assets.precompile += %w( dashboard.js dashboard.css)
+  config.assets.precompile += %w(dashboard.js dashboard.css mobile.js mobile.css)
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

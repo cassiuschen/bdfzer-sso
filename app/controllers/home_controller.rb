@@ -5,7 +5,7 @@ class HomeController < ApplicationController
   def index
     @ng_controller = "home"
     @feeds = current_user.feeds.sort {|f| Time.now - f.created_at}
-    @tweets = Tweet.all.sort {|f| Time.now - f.created_at}
+    @tweets = Tweet.all.sort {|f| Time.now - f.created_at} || []
   end
 
   def about
@@ -15,6 +15,10 @@ class HomeController < ApplicationController
   end
 
   def list
+  end
+
+  def redirect
+    redirect_to root_path
   end
 
   private
