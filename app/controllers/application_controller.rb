@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   before_action CASClient::Frameworks::Rails::Filter, if: :sign_up?
   before_action :check_phone
   #layout :to_phone
-  
+
   private
   def sign_up?
     !!((controller_name == 'registrations'))
@@ -30,6 +30,20 @@ class ApplicationController < ActionController::Base
       'layouts/application'
     end
   end
+<<<<<<< HEAD
+=======
+
+  def store_location
+    # store last url - this is needed for post-login redirect to whatever the user last visited.
+    if (!request.xhr?) # don't store ajax calls
+      session[:previous_url] = request.fullpath
+    end
+  end
+
+  def after_sign_in_path_for(resource)
+    session[:previous_url] || root_path
+  end
+>>>>>>> 77c680e85c1d27dc729eab856c39d0ab6acd0314
 end
 #request.fullpath != "/users/sign_in" &&
 #        request.fullpath != "/users/sign_up" &&
