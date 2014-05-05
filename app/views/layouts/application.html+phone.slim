@@ -7,8 +7,8 @@ html
     = stylesheet_link_tag "mobile", :media => "all", "data-turbolinks-track" => true
     = javascript_include_tag "mobile", "data-turbolinks-track" => true
     = csrf_meta_tags
-  body class=("#{controller_name} #{action_name}") data-controller-name="#{controller_name}" animation="slide-left-right-ios7"
-    ion-nav-bar.bar-header.nav-title-slide-ios7.bar-positive
-      ion-nav-back-button.button-icon.icon.ion-chevron-left Back
-    ion-nav-view
-      //= yield
+  body class=("#{controller_name} #{action_name}") data-controller-name="#{controller_name}"
+    .bar.bar-header.bar-positive
+      h1.title 北附人账号登陆
+    .scroll-content.overflow-scroll.has-header overflow-scroll="true" has-footer="true" has-header="true" padded="true"
+      == yield
