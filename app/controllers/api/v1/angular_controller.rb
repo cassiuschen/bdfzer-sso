@@ -7,7 +7,7 @@ class Api::V1::AngularController < Api::V1::BaseController
   end
 
   def user
-    @user = @fail || User.find_by_pku_id(session[:pku_id])
+    @user = @fail || User.where(pku_id: session[:pku_id]).first
     render json: @user
   end
 

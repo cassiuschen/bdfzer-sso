@@ -11,4 +11,7 @@ window.MobileController
   		$scope.friend = Friends.get($stateParams.friendId)
   	]
 
-	.controller 'AccountCtrl', ['$scope', ($scope) -> ]
+	.controller 'AccountCtrl', ['$scope', 'CurrentUser', 'UserInfo', ($scope, CurrentUser, UserInfo) -> 
+		$scope.raw_user = CurrentUser.get()
+		$scope.user = UserInfo.get()
+]
