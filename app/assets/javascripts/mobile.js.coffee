@@ -14,13 +14,24 @@
 # require jquery_ujs
 # require turbolinks
 # require semantic-ui
-#= require ionic/ionic
 #= require angular
 #= require angular-animate
 #= require angular-resource
 #= require angular-touch
 #= require angular-sanitize
 #= require angular-cookies
-#= require angular-route
+#= require ionic/ionic
+#= require ionic/angular-ui/angular-ui-router
 #= require ionic/ionic-angular
+#= require_self
+#= require ./dashboard/mobile_app
+#= require ./dashboard/services/mobile_services
+#= require ./dashboard/controllers/mobile_controller
+#= require_tree ../templates
+window.secret = "<%= $app_config['angular_secret'] %>"
+
+$ ->
+	#window.base.Init()
+	
+
 

@@ -1,9 +1,0 @@
-h1 Home#index#angular
-p Find me in app/views/home/index.html.slim
-p(ng-controller="HomeController")
-  | {{data.user.name}}
-  | sag
-  | {{data.user.email}}
-
-
-= link_to 'Log out', destroy_user_session_path, :method=>'delete'	
