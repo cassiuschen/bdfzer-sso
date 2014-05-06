@@ -32,7 +32,7 @@ module BDFZerSso
       Doorkeeper::ApplicationsController.layout "dashboard"
 
       # Only Authorization endpoint
-      Doorkeeper::AuthorizationsController.layout "semantic-login"
+      Doorkeeper::AuthorizationsController.layout "application"
 
       # Only Authorized Applications
       Doorkeeper::AuthorizedApplicationsController.layout "dashboard"

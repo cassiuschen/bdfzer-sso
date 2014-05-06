@@ -1,11 +1,12 @@
-window.UserServer = angular.module 'UserServer', [
+window.UserServer = angular.module 'TweetServer', [
 	'ngResource'
 ]
 
-window.UserServer.factory 'CurrentUser', ['$resource', ($resource) ->
-	$resource "api/v1/angular/current_info.json", {},
-		query:
-			method: 'GET'
+window.UserServer.factory 'CurrentUser', ['$http', ($http) ->
+	list = $http
+	 	method: 'GET',
+	 	url: "/api/v1/feed/#{current_user.pku_id}.json",
+	 	isArray: true
 ]
 
 window.UserServer.factory 'UserInfo', ['$resource', '$http', ($resource, $http) ->

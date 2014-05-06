@@ -31,7 +31,6 @@ class Api::V1::TweetController < Api::V1::BaseController
 
   def show
     @tweet = User.where(pku_id: user_params).first.tweets.sort {|f| Time.now - f.created_at}
-
     render json: @tweet
   end
 

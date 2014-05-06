@@ -1,0 +1,23 @@
+= form_for resource, :as => resource_name, :url => registration_path(resource_name), html: {:class => 'list'} do |f| 
+  = devise_error_messages!
+  .item.item-input
+    = f.email_field :email, :autofocus => true, :placeholder => "邮箱", :tabindex => "1"
+  .item.item-input
+    = f.text_field :name, :autofocus => true, :placeholder => "真实姓名", :tabindex => "2"
+  .item.item-input
+    = f.password_field :password, :placeholder => "密码", :tabindex => "3", :autofocus => true
+  .item.item-input
+    = f.password_field :password_confirmation, :placeholder => "重复密码", :tabindex => "4", :autofocus => true
+  = f.hidden_field :pku_id , :value => session[:cas_user]
+  .card
+    .item.item-text-wrap
+      h2.title 使用北大附中内网注册北附人ID
+      p 
+        | 北附人ID使用邮箱和北大附中学号作为登陆凭据，为避免离校后系统消息的正常推送与系统功能的使用，我们
+        b 强烈不建议
+        | 你使用后缀为
+        code
+          | pkuschool.edu.cn
+        | 的邮箱作为北附人注册邮箱。
+
+  = f.submit "注册", :class => "button button-outline button-balanced", :tabindex => "5", :autofocus => true, :style => "width: 100%; bottom: 0; position: fixed; z-index: 100;"

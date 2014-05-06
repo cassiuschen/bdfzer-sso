@@ -1,14 +1,13 @@
 doctype html
-html
+html ng-app="BDFZer-Mobile"
   head
     meta content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" name="viewport"
     title= content_for?(:title) ? yield(:title) : "北附人身份认证"
     meta content=(content_for?(:description) ? yield(:description) : "北附人身份认证") name="description"
-    = stylesheet_link_tag "mobile", :media => "all", "data-turbolinks-track" => true
-    = javascript_include_tag "mobile", "data-turbolinks-track" => true
+    = stylesheet_link_tag "mobile", :media => "all"
+    = javascript_include_tag "mobile"
     = csrf_meta_tags
   body class=("#{controller_name} #{action_name}") data-controller-name="#{controller_name}" animation="slide-left-right-ios7"
     ion-nav-bar.bar-header.nav-title-slide-ios7.bar-positive
-      ion-nav-back-button.button-icon.icon.ion-chevron-left Back
+      ion-nav-back-button.button-icon.icon.ion-chevron-left 返回
     ion-nav-view
-      = yield

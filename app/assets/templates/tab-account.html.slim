@@ -1,0 +1,17 @@
+ion-view title="{{user.user.name}}"
+  ion-content.has-header.padding
+    .list
+      .item.item-icon-left
+        i.icon.ion-email
+        | {{user.user.email}}
+      .item.item-icon-left
+        i.icon.ion-pound
+        | {{user.user.pku_id}}
+      .item.item-icon-left
+        i.icon.ion-star
+        | {{user.user.name}}
+    a.button.button-full.button-assertive ng-click="logout()"
+      | 退出登录
+
+      
+

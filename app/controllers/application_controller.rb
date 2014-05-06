@@ -6,7 +6,12 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action CASClient::Frameworks::Rails::Filter, if: :sign_up?
   before_action :check_phone
-  #layout :to_phone
+  layout :to_phone
+  helper_method :devise_check?
+
+  def devise_check?
+    !!(devise_controller?)
+  end
 
   private
   def sign_up?

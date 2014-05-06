@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   before_action :authenticate_user!
-  layout 'layouts/dashboard'
+  layout :choose_layout
   before_action :save_to_session
   def index
     @ng_controller = "home"
@@ -22,6 +22,14 @@ class HomeController < ApplicationController
   end
 
   private
+  def choose_layout
+    if request.variant == :phone
+      'layouts/ionic'
+    else
+      'layouts/dashboard'
+    end
+  end
+
   def save_to_session
     session[:pku_id] = current_user.pku_id
     session[:name] = current_user.name
