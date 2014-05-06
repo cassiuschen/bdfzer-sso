@@ -9,6 +9,9 @@ html
     = csrf_meta_tags
   body class=("#{controller_name} #{action_name}") data-controller-name="#{controller_name}"
     .bar.bar-header.bar-positive
-      h1.title 北附人账号登陆
+      h1.title 北附人用户认证
+      - if devise_check?
+        a.button.icon-right.ion-chevron-right.button-clear href="/users/sign_up" 
+          | 注册
     .scroll-content.overflow-scroll.has-header overflow-scroll="true" has-footer="true" has-header="true" padded="true"
       == yield

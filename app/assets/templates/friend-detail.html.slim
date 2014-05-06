@@ -6,3 +6,15 @@
 /
 ion-view title="{{friend.name}}"
   ion-content has-header="true" padding="true"
+    .list.card
+      .item.item-avatar
+        img src="{{friend.avatar}}"
+        h2
+          | {{friend.name}}
+      a.item.item-icon-left href="mailto:{{friend.email}}"
+        i.icon.ion-email
+        | {{friend.email}}
+      a.item.item-icon-left href="tel:{{friend.phone}}"
+        i.icon.ion-iphone
+        | +86 {{friend.phone}}
+

@@ -1,0 +1,29 @@
+.list.card
+  .item
+    h2
+      = @pre_auth.client.name
+    p = t 'doorkeeper.auth.title'
+
+  .item
+    -if @pre_auth.scopes 
+      p = t 'doorkeeper.auth.ability'
+      ul
+        - @pre_auth.scopes.each do |scope| 
+          li = t scope, :scope => [:doorkeeper, :scopes]
+  .item.tabs.tabs-secondary
+    = form_tag oauth_authorization_path, :method => :post
+      = hidden_field_tag :client_id, @pre_auth.client.uid 
+      = hidden_field_tag :redirect_uri, @pre_auth.redirect_uri 
+      = hidden_field_tag :state, @pre_auth.state 
+      = hidden_field_tag :response_type, @pre_auth.response_type 
+      = hidden_field_tag :scope, @pre_auth.scope 
+      = submit_tag "授权", :class => "tab-item"
+    .tab-item
+    = form_tag oauth_authorization_path, :method => :delete
+      = hidden_field_tag :client_id, @pre_auth.client.uid 
+      = hidden_field_tag :redirect_uri, @pre_auth.redirect_uri 
+      = hidden_field_tag :state, @pre_auth.state 
+      = hidden_field_tag :response_type, @pre_auth.response_type 
+      = hidden_field_tag :scope, @pre_auth.scope 
+      = submit_tag "拒绝", :class => "tab-item" 
+

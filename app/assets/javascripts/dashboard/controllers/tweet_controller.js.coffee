@@ -27,6 +27,6 @@
 							body: $scope.tweet,
 							date: "刚刚更新",
 							user_name: $scope.current_user.name,
-							user_avatar: "http://bdfzer-auth.qiniudn.com/user_avatar/#{$scope.current_user.id}/avatar.jpg"
+							user_avatar: $scope.current_user.avatar.url
 ]
 @TweetController.$inject = ['$scope', '$http', '$cookies', 'CurrentUser']

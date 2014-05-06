@@ -2,13 +2,15 @@ window.MobileApp = angular.module('BDFZer-Mobile', [
 	'ionic', 
 	'mobile.controllers', 
 	'mobile.services',
-	'UserServer'
+	'UserServer',
+	'FeedServer'
 ])
 
 window.MobileApp
-	.run ['$ionicPlatform',($ionicPlatform) ->
+	.run ['$ionicPlatform','UserInfo', ($ionicPlatform, UserInfo) ->
   		$ionicPlatform.ready () ->
     		StatusBar.styleDefault()
+    		#window.CurrentUser = UserInfo.get()
     ]
 	.config ['$stateProvider', '$urlRouterProvider',($stateProvider, $urlRouterProvider) ->
 
