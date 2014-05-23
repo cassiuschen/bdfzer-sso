@@ -9,6 +9,25 @@
   .ui.grid
     .ten.wide.column
       .ui.comments
+        .bdfzer.comment
+          a.avatar
+            = image_tag current_user.avatar
+          .main.body
+            .header
+              .name
+                = current_user.name
+              = timeago(Time.now)
+            .body
+              | 哇哈哈~我来测试一下北附人的状态系统~啦啦啦好好玩嘿嘿嘿，你们知道我在干嘛么？啦啦啦~~~
+            .footer
+              .status
+                i.comment.icon
+                | 12
+              .action
+                .share
+                  i.icon.share
+                .reply
+                  i.icon.reply.mail
         .new_tweet ng-repeat="tweet in new_tweets"
           .comment
             a.avatar

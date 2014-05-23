@@ -31,3 +31,52 @@ html {
 	overflow-x: hidden;
 }
 .hidden {display: none !important;}
+
+.bdfzer.comment {
+	.avatar {
+		position: absolute;
+		left: -35px;
+		top: 15px;
+	}
+	.main.body {
+		box-shadow: 0 0px 1px #CCC;
+		padding-top: 35px;
+		padding-left: 60px;
+		padding-right: 20px;
+		padding-bottom: 30px;
+		.header {
+			color: #aaa;
+			font-size: 15px;
+			font-weight: lighter;
+			.name {
+				display: inline-block;
+			}
+			.timeago {
+				display: inline-block;
+				float: right;
+			}
+		}
+		.body {
+			margin-top: 10px;
+			color: #777;
+			margin-right: 40px;
+			line-height: 20px;
+		}
+		.footer {
+			color: #aaa;
+			font-size: 15px;
+			margin-top: 10px;
+			.status {
+				float: left;
+				display: inline-block;
+			}
+			.action {
+				float: right;
+				display: inline-block;
+				div {
+					display: inline-block;
+				}
+			}
+		}
+	}	
+}
