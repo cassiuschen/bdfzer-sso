@@ -35,8 +35,13 @@ html {
 .bdfzer.comment {
 	.avatar {
 		position: absolute;
-		left: -35px;
-		top: 15px;
+		left: -30px;
+		top: 20px;
+		img {
+			border: 5px white solid;
+			box-shadow: 0 0 5px #aaa;
+			border-radius: 50px;
+		}
 	}
 	.main.body {
 		box-shadow: 0 0px 1px #CCC;
@@ -51,13 +56,19 @@ html {
 			.name {
 				display: inline-block;
 			}
+			.name:hover {
+				@include t(color, 0.4s);
+				color: #777;
+			}
 			.timeago {
 				display: inline-block;
 				float: right;
+				font-size: 12px;
 			}
 		}
 		.body {
 			margin-top: 10px;
+			font-size: 15px;
 			color: #777;
 			margin-right: 40px;
 			line-height: 20px;
@@ -77,6 +88,14 @@ html {
 					display: inline-block;
 				}
 			}
+			div:hover {
+				@include t(color, 0.318s);
+				color: #777;
+			}
 		}
+	}
+	.main.body:hover {
+		@include t(box-shadow, 0.7s);
+		box-shadow: 0 0px 1px #68e;
 	}	
 }

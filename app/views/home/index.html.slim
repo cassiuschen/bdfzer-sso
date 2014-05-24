@@ -1,4 +1,4 @@
-.angular_content(ng-app="BDFZer" ng-controller="TweetController") 
+.angular_content(ng-app="BDFZer" ng-controller="TweetController")
   .ui.form 
     .ui.action.input
       input#tweet name="tweet" type="text" ng-model="tweet"
@@ -9,70 +9,52 @@
   .ui.grid
     .ten.wide.column
       .ui.comments
-        .bdfzer.comment
-          a.avatar
-            = image_tag current_user.avatar
-          .main.body
-            .header
-              .name
-                = current_user.name
-              = timeago(Time.now)
-            .body
-              | 哇哈哈~我来测试一下北附人的状态系统~啦啦啦好好玩嘿嘿嘿，你们知道我在干嘛么？啦啦啦~~~
-            .footer
-              .status
-                i.comment.icon
-                | 12
-              .action
-                .share
-                  i.icon.share
-                .reply
-                  i.icon.reply.mail
         .new_tweet ng-repeat="tweet in new_tweets"
-          .comment
+          .bdfzer.comment
             a.avatar
              img src="{{tweet.user_avatar}}" alt="Avatar"
-            .content
-              a.author 
-                | {{tweet.user_name}}
-              .metadata
-                | {{tweet.date}}
-              .text
+            .main.body
+              .header
+                .name 
+                  | {{tweet.user_name}}
+                .timeago
+                  | {{tweet.date}}
+              .body
                 | {{tweet.body}}
+              .footer
+                .status
+                  i.comment.icon
+                  | 0
+                .action
+                  .share
+                    i.icon.share
+                  .reply
+                    i.icon.reply.mail
         - for tweet in @tweets
           - u = User.where(id: tweet.user_id).first
-          .comment
+          .bdfzer.comment
             a.avatar
               = image_tag u.avatar
-            .content
-              a.author = u.name
-              .metadata
-                = timeago(tweet.created_at, class: 'date')
-              .text
-                == tweet.body
-              .actions
-                a.reply Reply
-                - if u = current_user
-                  - uri = "/api/v1/tweet/#{tweet.id}"
-                  = link_to 'Delete', uri, method: 'delete', class: 'delete', data:{confirm:'Are you sure?'}
-      hr
-      .ui.feed
-        - for feed in @feeds do
-          - u = User.where(id: "#{feed.user_id}".to_i).first
-          .event
-            .label
-              - case feed.provider
-              - when "system"
-                i.circular.setting.icon
-            .content
-              = timeago(feed.created_at, class: "date")
-              .summary
-                - if u == current_user
-                 | 你
-                - else
-                  a href="/users" 
-                    = u.name 
-                == feed.body
+            .main.body
+              .header
+                .name
+                  = u.name
+                = timeago(tweet.created_at)
+              .body
+                = tweet.body
+              .footer
+                .status
+                  i.comment.icon
+                  | 12
+                .action
+                  - if u = current_user
+                    - uri = "/api/v1/tweet/#{tweet.id}"
+                    .delete
+                      a.icon.remove href="#{uri}" method="delete"
+                  .share
+                    i.icon.share
+                  .reply
+                    i.icon.reply.mail
     .two.wide.column
       .ui.list
         .item
