@@ -1,0 +1,15 @@
+.ui.test.modal.transition.visible#new_tweet
+    .content
+      .ui.form
+        .textarea.field
+          textarea ng-model="tweet" placeholder="发布新状态"
+        .inline.field
+          .ui.checkbox
+            input type="checkbox" ng-model="is_public"
+            label 公开发布{{submit.count}}{{is_public}}
+    .actions
+      .ui.black.button
+        | 取消
+      .ui.positive.right.labeled.icon.button ng-click="create_tweet()"
+        | 发布
+        i.checkmark.icon

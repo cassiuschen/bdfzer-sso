@@ -20,18 +20,55 @@
 @import 'pagebar';
 //@import "login-form";
 @import "setting";
-.angular_content {
-	margin-left: 60px;
-	margin-right: 60px;
-	margin-bottom: 60px;
-	padding-top: 60px;
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 60px;
+    margin-bottom: 60px;
+}
+
+.container:before,.container:after {
+    content: " ";
+    display: table
+}
+
+.container:after {
+    clear: both
+}
+
+@media (min-width: 768px) {
+    .container {
+        width:720px
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        width:940px
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width:1140px
+    }
 }
 html {
 	overflow-y: auto;
 	overflow-x: hidden;
 }
 .hidden {display: none !important;}
-
+.page-title {
+	text-align: center;
+	font-size: 15px;
+	/* display: inline-block; */
+	width: 100%;
+	z-index: 199;
+	position: fixed;
+	top: 14px;
+}
 .bdfzer.comment {
 	.avatar {
 		position: absolute;
@@ -98,4 +135,28 @@ html {
 		@include t(box-shadow, 0.7s);
 		box-shadow: 0 0px 1px #68e;
 	}	
+}
+
+.ui.modal {
+	.ui.form {
+		margin-bottom: -2em;
+		.textarea.field {
+			margin-left: -2em;
+			margin-right: -2em;
+			margin-top: -2em;
+			textarea {
+				border-radius: 0;
+				border: 0;
+				border-bottom: 3px #68e solid;
+				border-top: 1px #eee solid;
+				padding-left: 2em;
+				padding-top: 2em;
+			}
+			textarea:focus {
+				border-left: none;
+				@include t(box-shadow, 0.4s);
+				box-shadow: 0 1px 2px rgba(102,136,238,0.5);
+			}	
+		}
+	}
 }

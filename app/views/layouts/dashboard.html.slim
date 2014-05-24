@@ -7,7 +7,7 @@ html
     = stylesheet_link_tag "dashboard", :media => "all", "data-turbolinks-track" => true
     = javascript_include_tag "dashboard", "data-turbolinks-track" => true
     = csrf_meta_tags
-  body class=("#{controller_name} #{action_name}") data-controller-name="#{controller_name}"
+  body class=("#{controller_name} #{action_name}") data-controller-name="#{controller_name}" ng-app="BDFZer"
     = render 'layouts/leftbar'
     = render 'layouts/pagebar'
     - unless Rails.env == 'production' && current_user.pku_id != '1423101' && controller_name != 'setting'

@@ -1,9 +1,8 @@
-nav.ui.menu.pagebar
+nav.ui.menu.pagebar(ng-controller="PageNavController")
   a.item#leftbar_control
     i.reorder.icon
-  = link_to root_path, :class => "blue item #{'active'if controller_name == 'home'}"
-    i.home.icon
-    | {{current_user.id}}
+  .page-title
+    | {{page.title}}
   .right.menu
     = link_to current_user.name, edit_user_registration_path, :class => 'item'
     = link_to setting_user_path, :class => "item red #{'active' if controller_name == 'setting'}"
