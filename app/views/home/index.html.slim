@@ -1,50 +1,27 @@
 .container(ng-controller="TweetController")
+  p
+    | {{tweet_list}}
   .ui.comments
-    .new_tweet ng-repeat="tweet in new_tweets"
-      .bdfzer.comment
-        a.avatar
-         img src="{{tweet.user_avatar}}" alt="Avatar"
-        .main.body
-          .header
-            .name 
-              | {{tweet.user_name}}
-            .timeago
-              | {{tweet.date}}
-          .body
-            | {{tweet.body}}
-          .footer
-            .status
-              i.comment.icon
-              | 0
-            .action
-              .share
-                i.icon.share
-              .reply
-                i.icon.reply.mail
-    - for tweet in @tweets
-      - u = User.where(id: tweet.user_id).first
-      .bdfzer.comment
-        a.avatar
-          = image_tag u.avatar
-        .main.body
-          .header
-            .name
-              = u.name
-            = timeago(tweet.created_at)
-          .body
-            = tweet.body
-          .footer
-            .status
-              i.comment.icon
-              | 12
-            .action
-              - if u = current_user
-                - uri = "/api/v1/tweet/#{tweet.id}"
-                .delete
-                  a.icon.remove href="#{uri}" method="delete"
-              .share
-                i.icon.share
-              .reply
-                i.icon.reply.mail
+    .bdfzer.comment ng-repeat="t in tweet_list"
+      a.avatar
+       img ng-src="{{t.user.avatar}}" alt="Avatar"
+      .main.body
+        .header
+          .name 
+            | {{t.user.name}}
+          .timeago title="{{t.date}}"
+            | {{t.date}}
+        .body
+          | {{t["body"]}}
+        .footer
+          .status
+            i.comment.icon
+            | 0
+          .action
+            .share
+              i.icon.share
+            .reply
+              i.icon.reply.mail
+    
 
 = render 'modal/new_tweet'

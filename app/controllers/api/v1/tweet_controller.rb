@@ -30,8 +30,28 @@ class Api::V1::TweetController < Api::V1::BaseController
   end
 
   def show
-    @tweet = User.where(pku_id: user_params).first.tweets.sort {|f| Time.now - f.created_at}
-    render json: @tweet
+    params[:area] ||= "public"
+    @out =[]
+    case params[:area]
+    when "public"
+      @tweets = Tweet.all.sort_by {|t| Time.now - t.created_at}
+    when "personal"
+      @tweets = User.where("pku_id = ?", params[:user]).first.tweets.sort_by {|t| Time.now - t.created_at}
+    else
+      @tweets = User.where("pku_id = ?", params[:user]).first.tweets.sort_by {|t| Time.now - t.created_at}
+    end
+    @tweets.each do |t|
+      user = User.where("id = ?", t.user_id).first
+      @out << {
+        "body" => t.body,
+        "date" => t.created_at,
+        "user" => {
+          "name" => user.name,
+          "avatar" => user.avatar.url
+        }
+      }
+    end
+    render json: @out
   end
 
   private

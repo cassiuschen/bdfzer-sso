@@ -8,4 +8,5 @@ window.App.controller 'PageNavController', [
 		$rootScope.page = 
 			title: "北附人",
 			version: "3.0.5.1"
+		$rootScope.errors = []
 ]
