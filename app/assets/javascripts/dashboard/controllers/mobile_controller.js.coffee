@@ -1,8 +1,19 @@
 window.MobileController = angular.module 'mobile.controllers', []
 
 window.MobileController
-	.controller 'DashCtrl', ['$scope', '$http', 'FeedList', 'UserInfo', ($scope, $http, FeedList, UserInfo) -> 
-		#$scope.feeds = FeedList.getList()
+	.controller 'DashCtrl', ['$scope', '$http', 'TweetList', 'UserInfo', ($scope, $http, TweetList, UserInfo) -> 
+		TweetList.getPublic()
+			.success (data, status, headers) ->
+				$scope.tweets = data
+			.finally () ->
+				$scope.$broadcast('scroll.refreshComplete')	
+
+		$scope.refresh = () ->
+			TweetList.getPublic()
+				.success (data, status, headers) ->
+					$scope.tweets = data
+				.finally () ->
+					$scope.$broadcast('scroll.refreshComplete')	
 	]
 
 	.controller 'FriendsCtrl', ['$scope', 'Friends', ($scope, Friends) ->

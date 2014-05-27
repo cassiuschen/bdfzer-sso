@@ -1,12 +1,10 @@
-window.BDFZerServer = angular.module 'BDFZerServer', [
-	'ngResource'
-]
+window.BDFZerServer = angular.module 'BDFZerServer', []
 
 window.BDFZerServer.factory 'TweetList', ['$http', ($http) ->
 	getPublicList = () ->
 		$http
 			method: 'GET',
-			url: '/api/v1/tweet',
+			url: '/api/v1/tweet.json',
 			params:
 				area: "public",
 				angular_secret: window.secret

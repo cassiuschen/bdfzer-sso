@@ -8,6 +8,7 @@
             input type="checkbox" ng-model="is_public"
             label 公开发布{{submit.count}}{{is_public}}
     .actions
+      = render 'modal/submition_area'
       .ui.black.button
         | 取消
       .ui.positive.right.labeled.icon.button ng-click="create_tweet()"

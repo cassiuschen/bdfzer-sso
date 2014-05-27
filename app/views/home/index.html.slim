@@ -1,7 +1,7 @@
 .container(ng-controller="TweetController")
   p
     | {{tweet_list}}
-  .ui.comments
+  .ui.comments ng-show="tweet_list"
     .bdfzer.comment ng-repeat="t in tweet_list"
       a.avatar
        img ng-src="{{t.user.avatar}}" alt="Avatar"
