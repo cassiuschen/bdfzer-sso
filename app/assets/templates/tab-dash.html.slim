@@ -1,6 +1,6 @@
 ion-view title="Dashboard"
   ion-content.has-header.padding
-    ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"
+    ion-refresher pulling-text="向下拖动以更新..." on-refresh="refresh()"
     ion-list.card
       ion-item.item-avatar
         img src=""
@@ -23,11 +23,10 @@ ion-view title="Dashboard"
         | 访问银杏时报
     ion-list.card ng-repeat="tweet in tweets"
       ion-item.item-avatar 
-        img src="{{tweet.user.avatar}}}"
+        img src="{{tweet.user.avatar}}}" 
         h2 
           | {{tweet.user.name}}
-        p.timeago
-          | {{tweet.date}}
+        p.timeago title="{{tweet.date}}"
       .item.item-body
         p
           | {{tweet.body}}

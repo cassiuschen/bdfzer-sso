@@ -7,7 +7,5 @@ html ng-app="BDFZer-Mobile"
     = stylesheet_link_tag "mobile", :media => "all"
     = javascript_include_tag "mobile"
     = csrf_meta_tags
-  body class=("#{controller_name} #{action_name}") data-controller-name="#{controller_name}" animation="slide-left-right-ios7"
-    ion-nav-bar.bar-header.nav-title-slide-ios7.bar-positive
-      ion-nav-back-button.button-icon.icon.ion-chevron-left 返回
+  body class=("#{controller_name} #{action_name}") data-controller-name="#{controller_name}" animation="slide-left-right-ios7" ng-controller="SideMenuController"
     ion-nav-view

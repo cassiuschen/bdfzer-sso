@@ -5,8 +5,10 @@ window.MobileController
 		TweetList.getPublic()
 			.success (data, status, headers) ->
 				$scope.tweets = data
+				window.base.timeago()
 			.finally () ->
-				$scope.$broadcast('scroll.refreshComplete')	
+				$scope.$broadcast('scroll.refreshComplete')
+				window.base.timeago()
 
 		$scope.refresh = () ->
 			TweetList.getPublic()
@@ -14,6 +16,7 @@ window.MobileController
 					$scope.tweets = data
 				.finally () ->
 					$scope.$broadcast('scroll.refreshComplete')	
+					window.base.timeago()
 	]
 
 	.controller 'FriendsCtrl', ['$scope', 'Friends', ($scope, Friends) ->
@@ -30,4 +33,18 @@ window.MobileController
 
 		$scope.logout = () ->
 			$http.delete("/users/sign_out", {}, method: 'DELETE')
+	]
+
+	.controller 'SideMenuController', [
+		'$scope',
+		'$ionicSideMenuDelegate',
+		'CurrentUser',
+		'$rootScope',
+		'$http',
+		($scope, $ionicSideMenuDelegate, CurrentUser, $rootScope, $http) ->
+			$rootScope.current_user = CurrentUser.get()
+			$scope.toggleLeft = () ->
+    			$ionicSideMenuDelegate.toggleLeft()
+    		$scope.signOut = () ->
+				$http.delete("/users/sign_out", {}, method: 'DELETE')
 	]

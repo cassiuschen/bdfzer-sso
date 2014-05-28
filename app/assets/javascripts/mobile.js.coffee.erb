@@ -23,6 +23,7 @@
 #= require ionic/ionic
 #= require ionic/angular-ui/angular-ui-router
 #= require ionic/ionic-angular
+#= require timeago
 #= require_self
 #= require ./dashboard/services/mobile_services
 #= require ./dashboard/services/user_services
@@ -33,8 +34,14 @@
 #= require_tree ../templates
 window.secret = "<%= $app_config['angular_secret'] %>"
 
+window.base =
+	timeago : () ->
+		$(".timeago").timeago()
+	Init : () ->
+		window.base.timeago()
+
 $ ->
-	#window.base.Init()
+	window.base.Init()
 	
 
 
