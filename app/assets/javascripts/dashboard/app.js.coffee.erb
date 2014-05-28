@@ -3,7 +3,8 @@ window.App = angular.module('BDFZer', [
 	'ngRoute', 
 	'ngSanitize', 
 	'ngResource', 
-	'UserServer'
+	'UserServer',
+	'BDFZerServer'
 ])
 window.App.config(["$httpProvider", (provider) ->
     provider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')

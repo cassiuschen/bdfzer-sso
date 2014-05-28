@@ -25,3 +25,8 @@
     -ms-#{$action}: $value;
     #{$action}: $value;
 }
+@mixin t($motion,$time) {
+	-webkit-transition: $motion $time;
+	transition: $motion $time;
+	-o-transition: $motion $time;
+} 

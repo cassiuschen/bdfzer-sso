@@ -58,3 +58,5 @@ gem 'devise-async'
 gem 'sinatra'
 # Editor
 gem 'simditor-rails'
+# New Relic
+gem 'newrelic_rpm'

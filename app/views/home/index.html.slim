@@ -1,66 +1,27 @@
-.angular_content(ng-app="BDFZer" ng-controller="TweetController") 
-  .ui.form 
-    .ui.action.input
-      input#tweet name="tweet" type="text" ng-model="tweet"
-      a.ui.teal.right.labeled.icon.button ng-click="create_tweet()"
-        i.icon.bullhorn
-        | 发布状态
+.container(ng-controller="TweetController")
+  p
+    | {{tweet_list}}
+  .ui.comments ng-show="tweet_list"
+    .bdfzer.comment ng-repeat="t in tweet_list"
+      a.avatar
+       img ng-src="{{t.user.avatar}}" alt="Avatar"
+      .main.body
+        .header
+          .name 
+            | {{t.user.name}}
+          .timeago title="{{t.date}}"
+            | {{t.date}}
+        .body
+          | {{t["body"]}}
+        .footer
+          .status
+            i.comment.icon
+            | 0
+          .action
+            .share
+              i.icon.share
+            .reply
+              i.icon.reply.mail
+    
 
-  .ui.grid
-    .ten.wide.column
-      .ui.comments
-        .new_tweet ng-repeat="tweet in new_tweets"
-          .comment
-            a.avatar
-             img src="{{tweet.user_avatar}}" alt="Avatar"
-            .content
-              a.author 
-                | {{tweet.user_name}}
-              .metadata
-                | {{tweet.date}}
-              .text
-                | {{tweet.body}}
-        - for tweet in @tweets
-          - u = User.where(id: tweet.user_id).first
-          .comment
-            a.avatar
-              = image_tag u.avatar
-            .content
-              a.author = u.name
-              .metadata
-                = timeago(tweet.created_at, class: 'date')
-              .text
-                == tweet.body
-              .actions
-                a.reply Reply
-                - if u = current_user
-                  - uri = "/api/v1/tweet/#{tweet.id}"
-                  = link_to 'Delete', uri, method: 'delete', class: 'delete', data:{confirm:'Are you sure?'}
-      hr
-      .ui.feed
-        - for feed in @feeds do
-          - u = User.where(id: "#{feed.user_id}".to_i).first
-          .event
-            .label
-              - case feed.provider
-              - when "system"
-                i.circular.setting.icon
-            .content
-              = timeago(feed.created_at, class: "date")
-              .summary
-                - if u == current_user
-                 | 你
-                - else
-                  a href="/users" 
-                    = u.name 
-                == feed.body
-    .two.wide.column
-      .ui.list
-        .item
-          | {{user}}
-          br
-          | {{secret}}
-          br
-          | {{tweet}}
-          br
-          | {{current_user.id}}
+= render 'modal/new_tweet'
